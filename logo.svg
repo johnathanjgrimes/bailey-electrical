@@ -1,0 +1,27 @@
+<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define gradient -->
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boltGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Lightning Bolt Icon -->
+  <g transform="translate(10, 20)">
+    <polygon points="15,0 8,18 18,18 5,35 12,12 2,12" fill="url(#boltGradient)"/>
+  </g>
+  
+  <!-- BAILEY Text -->
+  <text x="40" y="50" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#64748b" letter-spacing="2">BAILEY</text>
+  
+  <!-- ELECTRICAL Text -->
+  <text x="40" y="75" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="url(#goldGradient)" letter-spacing="1">ELECTRICAL</text>
+  
+  <!-- Gold Accent Line -->
+  <line x1="40" y1="82" x2="280" y2="82" stroke="url(#goldGradient)" stroke-width="3" stroke-linecap="round"/>
+</svg>
