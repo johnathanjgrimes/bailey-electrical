@@ -1,16 +1,15 @@
 # Bailey Electrical Website
 
-A modern, responsive electrician website built with HTML, Tailwind CSS, and Calendly integration.
+A modern, responsive electrician website built with HTML and Tailwind CSS.
 
 ## Features
 
 - 🎨 Modern, professional design with Tailwind CSS
 - 📱 Fully responsive (mobile, tablet, desktop)
-- 🗓️ Calendly integration for easy appointment booking
 - ⚡ Fast loading with CDN resources
 - 🎯 Service showcase sections
 - ⭐ Testimonials section
-- 📧 Contact information
+- 📧 Direct contact options via phone and email
 - 🔗 Social media links
 - 🌙 Professional color scheme (slate, amber, gray)
 
@@ -18,7 +17,7 @@ A modern, responsive electrician website built with HTML, Tailwind CSS, and Cale
 
 ### Option 1: Open Directly in Browser
 1. Open `index.html` in your web browser
-2. Click "Book Now" or "Schedule Your Free Consultation" to test Calendly
+2. Use the booking links to email or call the business directly
 
 ### Option 2: Use a Local Server
 For best results, serve the file through a local web server:
@@ -38,10 +37,10 @@ Then visit: `http://localhost:8000`
 
 ## Customization
 
-### Update Calendly Link
-Replace the placeholder Calendly URL in the modal section:
-- Find: `data-url="https://calendly.com/baileyelectrical"`
-- Replace with your actual Calendly link
+### Update Booking Email
+Update the email used for appointment requests:
+- Find: `baileyelectrical.mb@gmail.com?subject=Booking%20Request`
+- Replace with the correct email address
 
 ### Update Phone Number
 Update the phone number:
@@ -107,7 +106,6 @@ All text content can be easily edited. Key sections:
 All dependencies are loaded via CDN:
 - **Tailwind CSS** - Styling
 - **Font Awesome** - Icons
-- **Calendly Widget** - Appointment booking
 
 No build process or installation required!
 
@@ -146,10 +144,10 @@ Consider adding:
 
 ## Support
 
-For questions or issues with Calendly integration:
-1. Visit: https://calendly.com/features/embed
-2. Generate your embed code
-3. Replace the `data-url` attribute in the modal
+For questions or issues with the website content or contact links:
+1. Update the contact details in `index.html`
+2. Test the email and phone links in a browser
+3. Confirm the social links and call-to-action buttons work as expected
 
 ---
 

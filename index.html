@@ -128,9 +128,9 @@
                     <a href="#testimonials" class="nav-link hover:text-amber-400 transition">Reviews</a>
                     <a href="#contact" class="nav-link hover:text-amber-400 transition">Contact</a>
                 </div>
-                <button onclick="document.getElementById('calendly-modal').style.display='flex'" class="cta-button text-white px-6 py-2 rounded-lg font-semibold">
+                <a href="mailto:baileyelectrical.mb@gmail.com?subject=Booking%20Request" class="cta-button text-white px-6 py-2 rounded-lg font-semibold inline-block">
                     Book Now
-                </button>
+                </a>
             </div>
         </div>
     </nav>
@@ -148,9 +148,9 @@
                         Trusted by hundreds of homes and businesses across Cardiff and South Wales. Expert electricians delivering quality, reliability, and customer care.
                     </p>
                     <div class="flex gap-4 flex-wrap">
-                        <button onclick="document.getElementById('calendly-modal').style.display='flex'" class="cta-button text-white px-8 py-3 rounded-lg font-bold text-lg">
+                        <a href="mailto:baileyelectrical.mb@gmail.com?subject=Booking%20Request" class="cta-button text-white px-8 py-3 rounded-lg font-bold text-lg inline-block">
                             Schedule Now
-                        </button>
+                        </a>
                         <a href="tel:01217905205" class="border-2 border-amber-400 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-400 hover:text-slate-900 transition">
                             <i class="fas fa-phone mr-2"></i>Call
                         </a>
@@ -485,9 +485,9 @@
             </div>
 
             <div class="text-center mb-12">
-                <button onclick="document.getElementById('calendly-modal').style.display='flex'" class="cta-button text-white px-10 py-3 rounded-lg font-bold text-lg">
+                <a href="mailto:baileyelectrical.mb@gmail.com?subject=Free%20Consultation%20Request" class="cta-button text-white px-10 py-3 rounded-lg font-bold text-lg inline-block">
                     Schedule Free Consultation
-                </button>
+                </a>
             </div>
 
             <!-- Social Links -->
@@ -512,24 +512,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Calendly Modal -->
-    <div id="calendly-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-            <div class="flex justify-between items-center p-6 border-b border-gray-200">
-                <h3 class="text-2xl font-bold text-gray-900">Schedule Your Appointment</h3>
-                <button onclick="document.getElementById('calendly-modal').style.display='none'" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            <div class="flex-1 overflow-hidden">
-                <div class="calendly-inline-widget" data-url="https://calendly.com/baileyelectrical" style="height:100%;"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Calendly Script -->
-    <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-10">
@@ -556,13 +538,6 @@
     </footer>
 
     <script>
-        // Close modal when clicking outside
-        document.getElementById('calendly-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        });
-
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
