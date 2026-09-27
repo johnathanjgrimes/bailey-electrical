@@ -1,0 +1,13 @@
+{
+  "_readme": "Real Google reviews, copied word for word (… marks a shortened review). Update rating/count when new reviews come in. Never edit or invent reviews.",
+  "rating": "5.0",
+  "count": 10,
+  "reviews": [
+    { "name": "Traveller", "meta": "Google Local Guide", "text": "I cannot recommend Mark from Bailey Electrical highly enough. He has completed several jobs for me, and each time, his work has been outstanding. Mark is incredibly professional, punctual, and knowledgeable, always explaining what needs to be done and ensuring everything is completed to the highest standard." },
+    { "name": "John H.", "meta": "Loft conversion", "text": "Mark is a fantastic electrician, I cannot rate him highly enough. He did all the wiring and installation for our loft conversion … Always arrived on time and his work is of an extremely high standard. We will not hesitate to call him again in future." },
+    { "name": "Liesel V.", "meta": "Upgrades & installations", "text": "Mark sorted out a number of electrical upgrades and installations for me, without trying to upsell anything. He was more than helpful in finding cost effective and aesthetically appealing solutions and worked tidily. Thanks Mark!" },
+    { "name": "Gail L.", "meta": "Kitchen lighting", "text": "Really thrilled with the lighting Mark has supplied and installed in my new kitchen and new fitted wardrobes. Very professional and knowledgeable. Job well done 👍 Highly recommend" },
+    { "name": "Andrew B.", "meta": "Track lighting", "text": "Mark has done lots of work for us in the house - installing track lighting in the kitchen and in a hallway. He is absolutely superb - very reliable, gives good advice, and goes above and beyond. Highly recommended." },
+    { "name": "Andrea R.", "meta": "Regular customer", "text": "Reliable prompt service, always on time. Friendly, efficient and invariably a reasonable price. Mark has been a real \"find\" for us." }
+  ]
+}

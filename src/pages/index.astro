@@ -6,6 +6,7 @@ import QuoteSection from '../components/QuoteSection.astro';
 import TrustBar from '../components/TrustBar.astro';
 import biz from '../data/business.json';
 import homeFaq from '../data/home-faq.json';
+import reviews from '../data/reviews.json';
 import { faqSchema, webPage, SITE } from '../lib/schema';
 const schema = [webPage('/', 'Electrician in Cardiff – Rewires, Renovations & Extensions'), faqSchema(homeFaq, `${SITE}/`)];
 ---
@@ -27,6 +28,7 @@ const schema = [webPage('/', 'Electrician in Cardiff – Rewires, Renovations & 
                         <a href={`tel:${biz.PHONE_TEL}`} class="btn-ghost px-8 py-4 font-bold"><i class="fas fa-phone mr-2" aria-hidden="true"></i>{biz.PHONE_DISPLAY}</a>
                     </div>
                     <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-300">
+                        <li><i class="fas fa-star text-amber-400 mr-2" aria-hidden="true"></i>Rated 5.0 on Google</li>
                         <li><i class="fas fa-circle-check text-amber-400 mr-2" aria-hidden="true"></i>Fully qualified</li>
                         <li><i class="fas fa-circle-check text-amber-400 mr-2" aria-hidden="true"></i>Fully insured</li>
                         <li><i class="fas fa-circle-check text-amber-400 mr-2" aria-hidden="true"></i>Certified on completion</li>
@@ -220,15 +222,28 @@ const schema = [webPage('/', 'Electrician in Cardiff – Rewires, Renovations & 
         </div>
     </section>
 
-    <section id="reviews" class="py-16 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="accent-line mx-auto mb-6"></div>
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">What our customers say</h2>
-            <p class="text-gray-600 text-lg mb-8">Most of our work comes from recommendations. Read what customers have said about us on Google.</p>
-            <!-- To feature real reviews, copy them word-for-word from Google with the reviewer's name as shown there. Never invent or edit reviews. -->
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href={biz.GOOGLE_REVIEWS} target="_blank" rel="noopener noreferrer" class="cta-button text-white px-7 py-3 rounded-lg font-bold"><i class="fab fa-google mr-2" aria-hidden="true"></i>Read our Google reviews</a>
-                <a href={biz.GOOGLE_WRITE_REVIEW} target="_blank" rel="noopener noreferrer" class="border-2 border-amber-500 text-amber-700 px-7 py-3 rounded-lg font-bold hover:bg-amber-500 hover:text-white transition"><i class="fas fa-star mr-2" aria-hidden="true"></i>Leave a review</a>
+    <section id="reviews" class="py-20 section-soft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="kicker-dark mb-3">Reviews</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">What our customers say</h2>
+                <p class="text-gray-600 text-lg"><span class="text-amber-500 text-xl tracking-wider" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong class="text-gray-900">{reviews.rating}</strong> from {reviews.count} Google reviews</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {reviews.reviews.map((r) => (
+                    <figure class="card p-7 flex flex-col">
+                        <div class="text-amber-500 mb-3 tracking-wider" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <blockquote class="text-gray-700 leading-relaxed flex-1">&ldquo;{r.text}&rdquo;</blockquote>
+                        <figcaption class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
+                            <span class="font-bold text-gray-900">{r.name}</span>
+                            <span class="text-gray-500">{r.meta} &middot; <i class="fab fa-google" aria-label="Google review"></i></span>
+                        </figcaption>
+                    </figure>
+                ))}
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mt-10">
+                <a href={biz.GOOGLE_REVIEWS} target="_blank" rel="noopener noreferrer" class="cta-button text-white px-7 py-3 font-bold"><i class="fab fa-google mr-2" aria-hidden="true"></i>Read all reviews on Google</a>
+                <a href={biz.GOOGLE_WRITE_REVIEW} target="_blank" rel="noopener noreferrer" class="border-2 border-amber-500 text-amber-700 px-7 py-3 rounded-xl font-bold hover:bg-amber-500 hover:text-white transition"><i class="fas fa-star mr-2" aria-hidden="true"></i>Leave a review</a>
             </div>
         </div>
     </section>
