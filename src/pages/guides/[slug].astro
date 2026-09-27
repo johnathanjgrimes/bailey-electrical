@@ -25,7 +25,7 @@ const job = g.id.includes('eicr') ? 'EICR / landlord certificate' : g.id.include
 const customer = g.id.includes('eicr') ? 'Landlord / letting agent' : undefined;
 ---
 <Base title={g.data.seoTitle} description={g.data.description} schema={schema}>
-  <PageHero crumb="Guides" kicker={g.data.kicker} title={g.data.title} lead={g.data.description} cta={false}>
+  <PageHero crumb="Guides" kicker={g.data.kicker} image={g.data.image} title={g.data.title} lead={g.data.description} cta={false}>
     <p class="text-sm text-gray-400">Updated {g.data.updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} &middot; Bailey Electrical, Cardiff</p>
   </PageHero>
   <div class="bg-white py-14"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -7,7 +7,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 ---
 <Base title="Recent Electrical Projects in Cardiff | Bailey Electrical" description="Kitchens, bathrooms, lighting and renovation electrics completed by Bailey Electrical in and around Cardiff."
   schema={[webPage('/projects/', 'Recent projects'), crumbs([['Home', '/'], ['Projects', '/projects/']])]}>
-  <PageHero crumb="Projects" kicker="Our work" title="Recent projects" lead="A few jobs we&rsquo;re proud of. Every one was planned, installed, tested and certified by us." />
+  <PageHero crumb="Projects" kicker="Our work" image="/work-1.jpeg" title="Recent projects" lead="A few jobs we&rsquo;re proud of. Every one was planned, installed, tested and certified by us." />
   <section class="py-16 bg-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
     {projects.map((p) => (
       <a href={`/projects/${p.id}/`} class="card rounded-xl overflow-hidden block">

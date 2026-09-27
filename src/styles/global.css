@@ -42,3 +42,44 @@ nav.site-nav { background: rgba(15,23,42,.96); border-bottom: 1px solid rgba(245
 .prose-guide th, .prose-guide td { border: 1px solid #e2e8f0; padding: .6rem .75rem; text-align: left; vertical-align: top; }
 .prose-guide th { background: #f8fafc; color: #111827; }
 .prose-guide blockquote { border-left: 4px solid #f59e0b; background: #fffbeb; padding: .75rem 1rem; margin: 1rem 0; }
+
+/* ---------- Premium look (design-refresh) ---------- */
+:root { --navy: #0b1220; --navy-2: #111a2e; --amber: #f59e0b; }
+body { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { letter-spacing: -0.02em; }
+.kicker { letter-spacing: .18em; font-size: .75rem; font-weight: 700; text-transform: uppercase; color: #fbbf24; }
+.kicker-dark { letter-spacing: .18em; font-size: .75rem; font-weight: 700; text-transform: uppercase; color: #b45309; }
+
+/* Full-bleed photo backgrounds that fade into the navy */
+.photo-bg { position: relative; overflow: hidden; background: var(--navy); isolation: isolate; }
+.photo-bg > .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.04); }
+.photo-bg::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(11,18,32,.97) 0%, rgba(11,18,32,.90) 38%, rgba(11,18,32,.55) 70%, rgba(11,18,32,.35) 100%),
+    linear-gradient(0deg, rgba(11,18,32,.85) 0%, rgba(11,18,32,0) 35%); }
+.photo-bg.center::before { background: linear-gradient(180deg, rgba(11,18,32,.82) 0%, rgba(11,18,32,.88) 60%, rgba(11,18,32,.96) 100%); }
+.photo-bg.soft > .bg { filter: blur(2px) saturate(.9); }
+@media (max-width: 767px) { .photo-bg::before { background: linear-gradient(180deg, rgba(11,18,32,.80) 0%, rgba(11,18,32,.92) 55%, rgba(11,18,32,.97) 100%); } }
+
+/* Glass panels on dark backgrounds */
+.glass { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.glass-link { transition: all .25s ease; }
+.glass-link:hover { background: rgba(255,255,255,.10); border-color: rgba(251,191,36,.55); transform: translateY(-2px); }
+
+/* Cards with a photo that fades into the card */
+.photo-card { background: #fff; border: 1px solid #e8edf3; border-radius: 1rem; overflow: hidden; transition: all .3s ease; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+.photo-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(15,23,42,.18); border-color: #f3d6a0; }
+.photo-card .ph { position: relative; height: 190px; overflow: hidden; }
+.photo-card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.photo-card:hover .ph img { transform: scale(1.06); }
+.photo-card .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.85) 85%, #fff 100%); }
+
+/* Softer, more premium cards and buttons */
+.card { border-color: #e8edf3; border-radius: 1rem; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+.card:hover { border-color: #f3d6a0; box-shadow: 0 20px 40px -12px rgba(15,23,42,.14); }
+.cta-button { border-radius: .75rem; box-shadow: 0 10px 25px -8px rgba(217,119,6,.55); }
+.btn-ghost { border: 1.5px solid rgba(255,255,255,.35); border-radius: .75rem; color: #fff; transition: all .25s ease; }
+.btn-ghost:hover { border-color: #fbbf24; background: rgba(251,191,36,.12); }
+nav.site-nav { background: rgba(11,18,32,.82); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid rgba(255,255,255,.06); }
+.hero-gradient { background: radial-gradient(1200px 500px at 85% -10%, rgba(245,158,11,.14), transparent 60%), linear-gradient(135deg, #0b1220 0%, #16213a 100%); }
+.section-soft { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
