@@ -1,0 +1,10 @@
+{
+  "name": "bailey-electrical",
+  "private": true,
+  "scripts": {
+    "build": "python3 src/build.py && tailwindcss -i src/input.css -o assets/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
