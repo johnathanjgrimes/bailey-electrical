@@ -57,6 +57,6 @@ Since 1 January 2016 the wiring regulations have required new consumer units in 
 
 1. We **test the existing circuits** first. RCD protection will trip if there are hidden faults, so any problems are found and explained before the new board goes in.
 2. The new consumer unit is fitted, usually in **about a day**.
-3. Everything is tested again, you get an **Electrical Installation Certificate**, and the work is notified to Building Control.
+3. Everything is tested again, you get an **Electrical Installation Certificate**, and notifiable work is signed off with Building Control.
 
 See [consumer unit upgrades in Cardiff](/consumer-unit-upgrades-cardiff/) or [get a quote](/get-a-quote/?job=Consumer%20unit%20upgrade).

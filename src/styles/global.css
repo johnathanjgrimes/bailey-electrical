@@ -52,19 +52,20 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 
 /* Full-bleed photo backgrounds that fade into the navy */
 .photo-bg { position: relative; overflow: hidden; background: var(--navy); isolation: isolate; }
-.photo-bg > .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.04); }
+.photo-bg > .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.04); filter: brightness(1.12) saturate(1.05); }
+.photo-bg h1, .photo-bg h2, .photo-bg p, .photo-bg li { text-shadow: 0 1px 12px rgba(11,18,32,.55); }
 .photo-bg::before { content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(90deg, rgba(11,18,32,.97) 0%, rgba(11,18,32,.90) 38%, rgba(11,18,32,.55) 70%, rgba(11,18,32,.35) 100%),
-    linear-gradient(0deg, rgba(11,18,32,.85) 0%, rgba(11,18,32,0) 35%); }
-.photo-bg.center::before { background: linear-gradient(180deg, rgba(11,18,32,.82) 0%, rgba(11,18,32,.88) 60%, rgba(11,18,32,.96) 100%); }
-.photo-bg.soft > .bg { filter: blur(2px) saturate(.9); }
-@media (max-width: 767px) { .photo-bg::before { background: linear-gradient(180deg, rgba(11,18,32,.80) 0%, rgba(11,18,32,.92) 55%, rgba(11,18,32,.97) 100%); } }
+    linear-gradient(90deg, rgba(11,18,32,.88) 0%, rgba(11,18,32,.68) 38%, rgba(11,18,32,.28) 72%, rgba(11,18,32,.10) 100%),
+    linear-gradient(0deg, rgba(11,18,32,.55) 0%, rgba(11,18,32,0) 30%); }
+.photo-bg.center::before { background: linear-gradient(180deg, rgba(11,18,32,.55) 0%, rgba(11,18,32,.70) 60%, rgba(11,18,32,.85) 100%); }
+.photo-bg.soft > .bg { filter: saturate(1.05); }
+@media (max-width: 767px) { .photo-bg::before { background: linear-gradient(180deg, rgba(11,18,32,.45) 0%, rgba(11,18,32,.72) 55%, rgba(11,18,32,.88) 100%); } }
 
 /* Glass panels on dark backgrounds */
-.glass { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.glass { background: rgba(11,18,32,.55); border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .glass-link { transition: all .25s ease; }
-.glass-link:hover { background: rgba(255,255,255,.10); border-color: rgba(251,191,36,.55); transform: translateY(-2px); }
+.glass-link:hover { background: rgba(11,18,32,.70); border-color: rgba(251,191,36,.55); transform: translateY(-2px); }
 
 /* Cards with a photo that fades into the card */
 .photo-card { background: #fff; border: 1px solid #e8edf3; border-radius: 1rem; overflow: hidden; transition: all .3s ease; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
@@ -72,7 +73,7 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 .photo-card .ph { position: relative; height: 190px; overflow: hidden; }
 .photo-card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .photo-card:hover .ph img { transform: scale(1.06); }
-.photo-card .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.85) 85%, #fff 100%); }
+.photo-card .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,.7) 92%, #fff 100%); }
 
 /* Softer, more premium cards and buttons */
 .card { border-color: #e8edf3; border-radius: 1rem; box-shadow: 0 1px 2px rgba(15,23,42,.04); }

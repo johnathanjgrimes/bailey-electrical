@@ -66,7 +66,7 @@ What's already done on the website, and what still needs doing by a person (most
 ### AI assistants (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews)
 - [x] `llms.txt` – a plain-English Markdown summary of the business, its services, areas and FAQs for AI tools to read
 - [x] `robots.txt` explicitly allows AI crawlers (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot and others)
-- [x] Content written as clear, factual statements ("Bailey Electrical is a NICEIC registered electrician in Cardiff that specialises in…"), which AI tools quote more readily
+- [x] Content written as clear, factual statements ("Bailey Electrical is a local, independent electrician in Cardiff that specialises in…"), which AI tools quote more readily
 - [x] Business name, phone and area identical everywhere on the site
 
 > Honest note: no major AI company has confirmed it reads `llms.txt`. It's cheap to have, but what really gets a business named by AI assistants and in Google AI Overviews is the same as normal local SEO: being indexed by Google **and Bing** (ChatGPT search uses Bing), a strong Google Business Profile, reviews, and consistent details across the web. That's the list below.
@@ -83,7 +83,7 @@ What's already done on the website, and what still needs doing by a person (most
 - [ ] In Search Console, submit `https://bailey-electrical.co.uk/sitemap-index.xml`
 
 ### 1. Check the facts on the site (before anything else)
-- [ ] Confirm **NICEIC registration** is current, and send John the registration number to display (the site says it in several places)
+- [ ] Confirm how notifiable work (rewires, consumer units, new circuits) is signed off with Building Control – the site says "we arrange sign-off". If Mark joins a competent person scheme later (NICEIC, NAPIT, ELECSA), add it back to the site – it is a strong trust signal
 - [ ] Confirm the **areas list** (remove anywhere Mark doesn't want to go)
 - [ ] Confirm **services**: EV chargers? Small commercial? Emergency work? (EV and 24/7 are left off for now)
 - [ ] Add **town names** to the three project write-ups if possible (e.g. "Kitchen extension, Penarth")
@@ -119,7 +119,6 @@ This is what shows up in Google Maps, the "map pack" at the top of local searche
 
 ### 5. Consistent listings ("citations")
 Same name, phone and website everywhere. Pick the ones that are free and relevant:
-- [ ] NICEIC "Find a contractor" listing – make sure the website link is on it
 - [ ] Facebook page – add the website link, services and service area; use the same phone number
 - [ ] Yell, Thomson Local, FreeIndex, Cylex (free listings)
 - [ ] Checkatrade / MyBuilder / Rated People – optional and paid, and they tend to bring small, price-shopping jobs, so only if they suit

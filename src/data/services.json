@@ -4,7 +4,7 @@
   "short": "Rewires",
   "card_title": "Rewires & consumer units",
   "title": "House Rewires in Cardiff | Full & Partial Rewiring | Bailey Electrical",
-  "description": "Full and partial house rewires in Cardiff, Penarth and the Vale. NICEIC registered, clear written quotes, tidy work and full certification. Call 07590 275205.",
+  "description": "Full and partial house rewires in Cardiff, Penarth and the Vale. Fully insured, clear written quotes, tidy work and full certification. Call 07590 275205.",
   "h1": "House rewires in Cardiff",
   "kicker": "Rewiring",
   "lead": "Full and partial rewires for homes across Cardiff and the surrounding area &mdash; planned properly, finished tidily and certified on completion.",
@@ -18,7 +18,7 @@
    },
    {
     "h": "What a rewire involves",
-    "html": "<ol class=\"list\">\n<li><strong>Survey and written quote.</strong> We look at the property, talk through where you want sockets, lighting and switches, and give you a clear scope of work and price.</li>\n<li><strong>First fix.</strong> New cables are run and back boxes fitted, usually with floorboards lifted and walls chased. This is the disruptive part, so we plan it around you.</li>\n<li><strong>Making good.</strong> Walls are then plastered &mdash; by your plasterer or builder, or we can recommend one.</li>\n<li><strong>Second fix.</strong> Sockets, switches, lights and a new consumer unit are fitted and connected.</li>\n<li><strong>Testing and certification.</strong> The whole installation is tested, you receive an Electrical Installation Certificate, and the work is notified to Building Control.</li>\n</ol>"
+    "html": "<ol class=\"list\">\n<li><strong>Survey and written quote.</strong> We look at the property, talk through where you want sockets, lighting and switches, and give you a clear scope of work and price.</li>\n<li><strong>First fix.</strong> New cables are run and back boxes fitted, usually with floorboards lifted and walls chased. This is the disruptive part, so we plan it around you.</li>\n<li><strong>Making good.</strong> Walls are then plastered &mdash; by your plasterer or builder, or we can recommend one.</li>\n<li><strong>Second fix.</strong> Sockets, switches, lights and a new consumer unit are fitted and connected.</li>\n<li><strong>Testing and certification.</strong> The whole installation is tested, you receive an Electrical Installation Certificate, and notifiable work is signed off with Building Control.</li>\n</ol>"
    },
    {
     "h": "How long does a rewire take?",
@@ -40,7 +40,7 @@
    },
    {
     "q": "Will I get a certificate?",
-    "a": "Yes. You'll get an Electrical Installation Certificate and the work is notified to Building Control, which you'll need when you sell the house."
+    "a": "Yes. You'll get an Electrical Installation Certificate and notifiable work is signed off with Building Control, which you'll need when you sell the house."
    },
    {
     "q": "Can you work with my builder or plasterer?",
@@ -53,7 +53,7 @@
   "short": "Consumer units",
   "card_title": "Consumer unit upgrades",
   "title": "Consumer Unit & Fuse Box Upgrades in Cardiff | Bailey Electrical",
-  "description": "Fuse box and consumer unit replacements in Cardiff. Modern metal consumer units with RCD/RCBO protection, tested and certified. NICEIC registered. Call 07590 275205.",
+  "description": "Fuse box and consumer unit replacements in Cardiff. Modern metal consumer units with RCD/RCBO protection, tested and certified. Fully insured. Call 07590 275205.",
   "h1": "Consumer unit &amp; fuse box upgrades in Cardiff",
   "kicker": "Consumer units",
   "lead": "Replace an old fuse box with a modern consumer unit that protects your family and meets current wiring regulations.",
@@ -67,7 +67,7 @@
    },
    {
     "h": "What&rsquo;s involved",
-    "html": "<p>Most consumer unit replacements are done in a day, with the power off for part of it. Before connecting the new board we test the existing circuits: an RCD will trip if there are hidden faults, so any problems we find are explained to you before we go any further.</p>\n<p>When the job is finished you get an Electrical Installation Certificate and the work is notified to Building Control.</p>"
+    "html": "<p>Most consumer unit replacements are done in a day, with the power off for part of it. Before connecting the new board we test the existing circuits: an RCD will trip if there are hidden faults, so any problems we find are explained to you before we go any further.</p>\n<p>When the job is finished you get an Electrical Installation Certificate and notifiable work is signed off with Building Control.</p>"
    },
    {
     "h": "Good times to upgrade",
@@ -94,7 +94,7 @@
   "short": "Extensions & renovations",
   "card_title": "Extensions & renovations",
   "title": "Electrician for Extensions, Kitchens & Renovations in Cardiff | Bailey Electrical",
-  "description": "Complete electrics for extensions, kitchens, bathrooms and renovations in Cardiff. First and second fix, lighting design, certification and Building Regs notification. Call 07590 275205.",
+  "description": "Complete electrics for extensions, kitchens, bathrooms and renovations in Cardiff. First and second fix, lighting design, certification and Building Regs sign-off. Call 07590 275205.",
   "h1": "Electrics for extensions, kitchens &amp; renovations",
   "kicker": "Extensions &amp; renovations",
   "lead": "Complete electrical work for extensions, kitchens, bathrooms and refurbishments across Cardiff &mdash; working directly for you or as part of your builder&rsquo;s team.",
@@ -115,8 +115,8 @@
     "html": "<p>It&rsquo;s much cheaper to put a socket or light in the right place at first fix than to move it later. Before we start we&rsquo;ll walk through the space with you and think about:</p>\n<ul class=\"list\">\n<li>Where furniture, the TV and appliances will go</li>\n<li>Enough sockets, including USB sockets where useful</li>\n<li>Lighting in layers &mdash; general downlights, task lighting and feature lighting</li>\n<li>Two-way switching and dimmers in the right places</li>\n<li>Outdoor lighting and power if the extension opens onto the garden</li>\n</ul>"
    },
    {
-    "h": "Certified and notified",
-    "html": "<p>New circuits and most renovation electrical work are notifiable under the Building Regulations. We test everything, issue an Electrical Installation Certificate and notify the work to Building Control, so your paperwork is in order for sign-off and when you come to sell.</p>"
+    "h": "Tested, certified and signed off",
+    "html": "<p>New circuits and most renovation electrical work are notifiable under the Building Regulations. We test everything, issue an Electrical Installation Certificate and make sure notifiable work is signed off with Building Control, so your paperwork is in order for sign-off and when you come to sell.</p>"
    }
   ],
   "faq": [
@@ -130,7 +130,7 @@
    },
    {
     "q": "Do you handle Building Regulations for the electrics?",
-    "a": "Yes. We test and certify the work and notify it to Building Control for you."
+    "a": "Yes. We test and certify the work and make sure it's signed off with Building Control."
    }
   ]
  },
@@ -184,7 +184,7 @@
   "short": "Builders & trades",
   "card_title": "For builders & trades",
   "title": "Electrician for Builders & Trades in Cardiff | Bailey Electrical",
-  "description": "Reliable NICEIC registered electrician for builders, kitchen and bathroom fitters and trades in Cardiff. First and second fix around your programme, certification handled. Call 07590 275205.",
+  "description": "Reliable, fully insured electrician for builders, kitchen and bathroom fitters and trades in Cardiff. First and second fix around your programme, certification handled. Call 07590 275205.",
   "h1": "Electrician for builders &amp; trades in Cardiff",
   "kicker": "For builders &amp; trades",
   "lead": "An electrician you can put on your jobs. We work with builders, kitchen and bathroom fitters, carpenters and other trades across Cardiff. We turn up when we say, work around your programme, and leave the paperwork sorted.",
@@ -194,7 +194,7 @@
   "sections": [
    {
     "h": "What you get",
-    "html": "<ul class=\"list\">\n<li><strong>Reliable dates.</strong> First and second fix booked around your programme &mdash; no holding up the plasterer or the fitter.</li>\n<li><strong>Straight communication.</strong> With you and, where you want us to, with your client.</li>\n<li><strong>Paperwork handled.</strong> Electrical Installation Certificates and Building Regulations notification done for you.</li>\n<li><strong>A tidy site.</strong> We clear up after ourselves and respect the client&rsquo;s home.</li>\n<li><strong>Registered and insured.</strong> NICEIC registered with full public liability insurance.</li>\n</ul>"
+    "html": "<ul class=\"list\">\n<li><strong>Reliable dates.</strong> First and second fix booked around your programme &mdash; no holding up the plasterer or the fitter.</li>\n<li><strong>Straight communication.</strong> With you and, where you want us to, with your client.</li>\n<li><strong>Paperwork handled.</strong> Electrical Installation Certificates and Building Regulations sign-off done for you.</li>\n<li><strong>A tidy site.</strong> We clear up after ourselves and respect the client&rsquo;s home.</li>\n<li><strong>Registered and insured.</strong> Fully qualified, with full public liability insurance.</li>\n</ul>"
    },
    {
     "h": "Work we take on with trades",
@@ -211,8 +211,8 @@
     "a": "Yes. We fit first fix before plastering and second fix after decorating, scheduled around your programme."
    },
    {
-    "q": "Do you certify and notify the work?",
-    "a": "Yes. We issue the Electrical Installation Certificate and notify Building Control, so the electrics are ready for sign-off."
+    "q": "Do you certify the work and handle Building Regs?",
+    "a": "Yes. We issue the Electrical Installation Certificate and arrange Building Control sign-off, so the electrics are ready for sign-off."
    },
    {
     "q": "What areas do you cover for trade work?",

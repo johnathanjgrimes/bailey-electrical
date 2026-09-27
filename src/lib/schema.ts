@@ -21,7 +21,7 @@ export function businessSchema() {
     logo: `${SITE}/logo.svg`,
     image: [`${SITE}/assets/og-image.jpg`, `${SITE}/work-3.jpeg`, `${SITE}/work-7.jpeg`, `${SITE}/work-1.jpeg`],
     description:
-      'Local, independent NICEIC registered electrician in Cardiff specialising in rewires, consumer unit upgrades, extension and renovation electrics, lighting, EICRs and landlord certificates. Works with homeowners, landlords, builders and other trades.',
+      'Local, independent electrician in Cardiff specialising in rewires, consumer unit upgrades, extension and renovation electrics, lighting, EICRs and landlord certificates. Works with homeowners, landlords, builders and other trades.',
     slogan: 'Rewires, renovations & extensions — done properly.',
     telephone: biz.PHONE_INTL,
     email: biz.EMAIL,
@@ -29,7 +29,6 @@ export function businessSchema() {
     areaServed: areaServed(),
     knowsLanguage: 'en-GB',
     currenciesAccepted: 'GBP',
-    memberOf: { '@type': 'Organization', name: 'NICEIC', url: 'https://niceic.com/' },
     knowsAbout: [
       'House rewiring', 'Consumer unit replacement', 'Electrical Installation Condition Reports',
       'Landlord electrical safety certificates', 'Renting Homes (Wales) electrical safety', 'Extension and renovation electrics',
