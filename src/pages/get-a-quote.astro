@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import Faq from '../components/Faq.astro';
+import TrustBar from '../components/TrustBar.astro';
+import biz from '../data/business.json';
+import { crumbs, webPage, faqSchema, SITE } from '../lib/schema';
+const faq = [
+  { q: 'Is the quote free?', a: 'Yes. We visit, agree the scope of work with you and give you a fixed written quote.' },
+  { q: 'How quickly will you get back to me?', a: 'We aim to reply as soon as we can. If your enquiry is urgent, call us.' },
+  { q: 'Do you cover my area?', a: 'We cover Cardiff and roughly 20 miles around it, and travel further for larger projects. Type your postcode into the form and it will tell you straight away.' },
+  { q: 'What should I include in my enquiry?', a: 'The type of property, what you want doing, your postcode and when you would like it done. For a rewire, the quote builder lets you set out sockets and lighting room by room.' },
+];
+---
+<Base title="Get a Quote | Cardiff Electrician | Bailey Electrical" description="Request a free, fixed written quote from Bailey Electrical, a NICEIC registered electrician in Cardiff. Rewires, consumer units, renovations, lighting and EICRs."
+  schema={[webPage('/get-a-quote/', 'Get a quote'), crumbs([['Home', '/'], ['Get a quote', '/get-a-quote/']]), faqSchema(faq, `${SITE}/get-a-quote/`)]}>
+  <PageHero crumb="Get a quote" kicker="Free, fixed written quotes" title="Get a quote" lead="Tell us about the job and pick a couple of days that suit you for a survey visit. We&rsquo;ll come back to you to confirm." cta={false} />
+  <TrustBar />
+  <section class="py-14 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-10 items-start">
+      <div class="lg:col-span-2"><QuoteForm survey={true} idPrefix="gq" subject="Survey request" /></div>
+      <aside class="space-y-5">
+        <a href="/rewire-quote-builder/" class="card rounded-xl p-6 block border-amber-300"><span class="block font-bold text-gray-900 text-lg mb-1"><i class="fas fa-sliders text-amber-500 mr-2" aria-hidden="true"></i>Planning a rewire?</span><span class="block text-gray-600 text-sm">Use the quote builder to set out sockets, lighting and extras room by room &mdash; it gets you a more accurate quote.</span></a>
+        <div class="card rounded-xl p-6">
+          <h2 class="font-bold text-gray-900 mb-4">What happens next</h2>
+          <ol class="space-y-4 text-sm text-gray-700">
+            <li class="flex gap-3"><span class="icon-tile text-white w-7 h-7 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</span>We read your enquiry and get back to you to arrange a visit.</li>
+            <li class="flex gap-3"><span class="icon-tile text-white w-7 h-7 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</span>We look at the property and talk through exactly what you want.</li>
+            <li class="flex gap-3"><span class="icon-tile text-white w-7 h-7 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</span>You get a fixed written quote with a clear scope of work.</li>
+            <li class="flex gap-3"><span class="icon-tile text-white w-7 h-7 rounded-full flex items-center justify-center font-bold flex-shrink-0">4</span>We agree dates that work around you or your builder.</li>
+          </ol>
+        </div>
+        <a href={`tel:${biz.PHONE_TEL}`} class="flex items-center gap-4 card rounded-xl p-5"><span class="bg-amber-100 w-12 h-12 rounded-lg flex items-center justify-center"><i class="fas fa-phone text-amber-600" aria-hidden="true"></i></span><span><span class="block text-sm text-gray-500">Prefer to call?</span><span class="font-bold text-gray-900">{biz.PHONE_DISPLAY}</span></span></a>
+      </aside>
+    </div>
+  </section>
+  <Faq faq={faq} bg="bg-white" />
+</Base>

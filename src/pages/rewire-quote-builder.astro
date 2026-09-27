@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import tc from '../data/tools-content.json';
+import { faqSchema, crumbs, webPage, BIZ_ID, SITE } from '../lib/schema';
+const t = tc.find((x) => x.key === 'qb')!;
+const path = '/rewire-quote-builder/';
+const schema = [
+  { '@type': 'WebApplication', '@id': `${SITE}${path}#app`, name: 'Rewire quote builder', url: `${SITE}${path}`, description: 'Plan your rewire room by room and send it to Bailey Electrical for a fixed written quote.',
+    applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' }, provider: { '@id': BIZ_ID } },
+  webPage(path, 'Rewire quote builder', { about: { '@id': `${SITE}${path}#app` } }),
+  crumbs([['Home', '/'], ['Rewire quote builder', path]]),
+  faqSchema(t.faq, `${SITE}${path}`),
+];
+---
+<Base title="Rewire Cost & Quote Builder | Cardiff | Bailey Electrical" description="Plan your rewire room by room – sockets, lighting, consumer unit and extras – and get a fixed written quote from a NICEIC registered Cardiff electrician. Free, takes 2 minutes." schema={schema}>
+
+    <header class="hero-gradient text-white py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav aria-label="Breadcrumb" class="text-sm text-gray-400 mb-5"><a href="/" class="hover:text-amber-400">Home</a> <span class="mx-2">/</span> <span class="text-gray-200">Rewire quote builder</span></nav>
+            <p class="text-amber-400 font-semibold tracking-wide uppercase text-sm mb-3">Free online tool</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Build your rewire quote</h1>
+            <p class="text-lg text-gray-300 max-w-2xl">Tell us about your home room by room &mdash; sockets, lighting and extras &mdash; and we&rsquo;ll send back a proper written quote. It takes about two minutes.</p>
+        </div>
+    </header>
+
+    <section class="bg-gray-50 py-10 md:py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ol id="qb-progress" class="flex items-center justify-between max-w-3xl mx-auto mb-10" aria-label="Progress"></ol>
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+                <div class="lg:col-span-2 card rounded-xl p-6 md:p-8" id="qb-panel" aria-live="polite"></div>
+                <aside class="card rounded-xl p-6 lg:sticky lg:top-24">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="icon-tile w-11 h-11 rounded-lg flex items-center justify-center"><i class="fas fa-clipboard-list text-white" aria-hidden="true"></i></span>
+                        <h2 class="font-bold text-gray-900 text-lg">Your rewire</h2>
+                    </div>
+                    <div id="qb-summary" class="text-sm text-gray-700 space-y-3"></div>
+                    <p class="text-xs text-gray-500 mt-5 pt-4 border-t border-slate-200">Every home is different, so we&rsquo;ll confirm the scope and give you a fixed written price after a visit.</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+  <div class="bg-white py-16"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"><article>
+    {t.sections.map((sec) => (<section class="mb-12"><h2 class="text-3xl font-bold text-gray-900 mb-4" set:html={sec.h} /><div class="prose-body" set:html={sec.html} /></section>))}
+  </article></div></div>
+  <Faq faq={t.faq} />
+  <script is:inline src="/js/quote-builder.js" defer slot="scripts"></script>
+</Base>

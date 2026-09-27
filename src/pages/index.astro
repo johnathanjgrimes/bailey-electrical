@@ -1,0 +1,248 @@
+---
+import Base from '../layouts/Base.astro';
+import Areas from '../components/Areas.astro';
+import Faq from '../components/Faq.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import TrustBar from '../components/TrustBar.astro';
+import biz from '../data/business.json';
+import homeFaq from '../data/home-faq.json';
+import { faqSchema, webPage, SITE } from '../lib/schema';
+const schema = [webPage('/', 'Electrician in Cardiff – Rewires, Renovations & Extensions'), faqSchema(homeFaq, `${SITE}/`)];
+---
+<Base title="Electrician in Cardiff | Rewires, Renovations & Extensions | Bailey Electrical"
+  description="NICEIC registered electrician in Cardiff. Rewires, consumer unit upgrades, extension and renovation electrics, lighting, EICRs and landlord certificates. Trusted by local builders. Call 07590 275205."
+  schema={schema} preload="/work-3.jpeg">
+
+
+    <header class="hero-gradient text-white py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="accent-line mb-6"></div>
+                    <p class="text-amber-400 font-semibold tracking-wide uppercase text-sm mb-3">NICEIC registered electrician in Cardiff</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Rewires, renovations &amp; extensions &mdash; done properly.</h1>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">Bailey Electrical is a local, independent electrical business working with homeowners, landlords and builders across Cardiff. Clear written quotes, tidy work, and certification on every job.</p>
+                    <div class="flex gap-4 flex-wrap mb-10">
+                        <a href="/get-a-quote/" class="cta-button text-white px-8 py-3 rounded-lg font-bold text-lg">Request a Quote</a>
+                        <a href={`tel:${biz.PHONE_TEL}`} class="border-2 border-amber-400 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-400 hover:text-slate-900 transition"><i class="fas fa-phone mr-2" aria-hidden="true"></i>{biz.PHONE_DISPLAY}</a>
+                    </div>
+                    <ul class="grid grid-cols-2 gap-3 text-sm text-gray-200 max-w-md">
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2" aria-hidden="true"></i>NICEIC registered</li>
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2" aria-hidden="true"></i>Fully insured</li>
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2" aria-hidden="true"></i>Certified on completion</li>
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2" aria-hidden="true"></i>Trusted by local builders</li>
+                    </ul>
+                </div>
+                <div class="hidden md:block">
+                    <div class="photo rounded-xl shadow-2xl aspect-[4/3]"><img src="/work-3.jpeg" width="1200" height="1600" fetchpriority="high" alt="Kitchen extension in Cardiff with recessed downlights and under-cabinet LED lighting fitted by Bailey Electrical"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+<TrustBar />
+
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14"><div class="accent-line mx-auto mb-6"></div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Electrical services in Cardiff</h2>
+                <p class="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">We specialise in jobs that need doing properly, from first fix to final certificate.</p></div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="/rewires-cardiff/" class="card p-8 rounded-xl block">
+                    <div class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center mb-5"><i class="fas fa-plug-circle-bolt text-white text-xl" aria-hidden="true"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Rewires &amp; consumer units</h3>
+                    <p class="text-gray-600 mb-5">Full and partial rewires planned around you, and consumer unit upgrades that bring older homes up to current regulations.</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-5">
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Full &amp; partial house rewires</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Fuse box &amp; consumer unit replacements</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>New circuits &amp; additional sockets</li>
+                    </ul>
+                    <span class="text-amber-600 font-semibold text-sm">About rewires <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
+                </a>
+                <a href="/extensions-renovations-electrician-cardiff/" class="card p-8 rounded-xl block">
+                    <div class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center mb-5"><i class="fas fa-trowel-bricks text-white text-xl" aria-hidden="true"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Extensions &amp; renovations</h3>
+                    <p class="text-gray-600 mb-5">Complete electrics for kitchens, bathrooms, extensions and refurbishments &mdash; working directly for you or alongside your builder.</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-5">
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>First &amp; second fix</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Kitchens &amp; bathrooms</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Certification &amp; Building Regs notification</li>
+                    </ul>
+                    <span class="text-amber-600 font-semibold text-sm">About renovation electrics <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
+                </a>
+                <a href="/projects/" class="card p-8 rounded-xl block">
+                    <div class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center mb-5"><i class="fas fa-lightbulb text-white text-xl" aria-hidden="true"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lighting, inside &amp; out</h3>
+                    <p class="text-gray-600 mb-5">Lighting that makes a room &mdash; downlights, LED strip and feature lighting, plus garden and patio lighting.</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-5">
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Downlights &amp; LED upgrades</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Under-cabinet, plinth &amp; mirror lighting</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Garden, patio &amp; outdoor lighting</li>
+                    </ul>
+                    <span class="text-amber-600 font-semibold text-sm">See lighting projects <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
+                </a>
+            </div>
+            <div class="mt-10 rounded-xl bg-slate-50 border border-slate-200 p-6 md:p-8">
+                <h3 class="font-bold text-gray-900 mb-4">Also available</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-gray-700">
+                    <a href="/eicr-landlord-certificates-cardiff/" class="hover:text-amber-700"><i class="fas fa-clipboard-check text-amber-500 mr-2" aria-hidden="true"></i>EICRs &amp; electrical testing</a>
+                    <a href="/eicr-landlord-certificates-cardiff/" class="hover:text-amber-700"><i class="fas fa-house-user text-amber-500 mr-2" aria-hidden="true"></i>Landlord electrical certificates</a>
+                    <a href="/consumer-unit-upgrades-cardiff/" class="hover:text-amber-700"><i class="fas fa-bolt text-amber-500 mr-2" aria-hidden="true"></i>Consumer unit upgrades</a>
+                    <p><i class="fas fa-magnifying-glass text-amber-500 mr-2" aria-hidden="true"></i>Fault finding &amp; repairs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="/rewire-quote-builder/" class="card rounded-xl p-8 flex gap-5 items-start">
+                    <span class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-sliders text-white text-xl" aria-hidden="true"></i></span>
+                    <span><span class="block text-amber-600 font-semibold text-sm uppercase tracking-wide mb-1">Free tool</span><span class="block text-2xl font-bold text-gray-900 mb-2">Build your rewire quote</span>
+                    <span class="block text-gray-600">Choose sockets, lighting and extras room by room, and send it to us for a written quote. Takes two minutes.</span>
+                    <span class="inline-block mt-4 text-amber-700 font-bold">Start building <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span></span>
+                </a>
+                <a href="/do-i-need-a-rewire/" class="card rounded-xl p-8 flex gap-5 items-start">
+                    <span class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-list-check text-white text-xl" aria-hidden="true"></i></span>
+                    <span><span class="block text-amber-600 font-semibold text-sm uppercase tracking-wide mb-1">1-minute check</span><span class="block text-2xl font-bold text-gray-900 mb-2">Does my house need rewiring?</span>
+                    <span class="block text-gray-600">Answer seven quick questions about your fuse box, cables and sockets to see if your electrics are fine, due a check or likely need a rewire.</span>
+                    <span class="inline-block mt-4 text-amber-700 font-bold">Take the check <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="prices" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-2xl hero-gradient text-white p-8 md:p-12 grid lg:grid-cols-3 gap-8 items-center">
+                <div class="lg:col-span-2">
+                    <p class="text-amber-400 font-semibold tracking-wide uppercase text-sm mb-3">Honest prices</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">How much does a rewire cost?</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">A full rewire of a typical three-bed house generally costs around <strong class="text-white">&pound;4,500&ndash;&pound;8,000</strong>. See what affects the price, what a proper quote should include, and how to compare quotes like for like.</p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="/rewire-cost-cardiff/" class="cta-button text-white text-center px-6 py-3 rounded-lg font-bold">See rewire prices</a>
+                    <a href="/get-a-quote/" class="text-center border-2 border-amber-400 text-white px-6 py-3 rounded-lg font-bold hover:bg-amber-400 hover:text-slate-900 transition">Book a survey visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="who" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14"><div class="accent-line mx-auto mb-6"></div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Who we work with</h2>
+                <p class="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">Most of our work comes from recommendations, repeat customers and the trades we work alongside.</p></div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card rounded-xl p-6"><i class="fas fa-house text-amber-500 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-gray-900 mb-2">Homeowners</h3><p class="text-gray-600 text-sm">Especially if you&rsquo;re planning a renovation, extension, new kitchen or bathroom, or a rewire.</p></div>
+                <a href="/builders-trades/" class="card rounded-xl p-6 block"><i class="fas fa-helmet-safety text-amber-500 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-gray-900 mb-2">Builders &amp; trades</h3><p class="text-gray-600 text-sm">A reliable electrician you can use job after job, fitting in with your programme.</p></a>
+                <a href="/eicr-landlord-certificates-cardiff/" class="card rounded-xl p-6 block"><i class="fas fa-key text-amber-500 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-gray-900 mb-2">Landlords &amp; agents</h3><p class="text-gray-600 text-sm">EICRs, landlord certificates and remedial work, with ongoing testing when it&rsquo;s due.</p></a>
+                <div class="card rounded-xl p-6"><i class="fas fa-store text-amber-500 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-gray-900 mb-2">Small local businesses</h3><p class="text-gray-600 text-sm">Shops, offices and small premises in and around Cardiff, by arrangement.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14"><div class="accent-line mx-auto mb-6"></div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Recent projects</h2>
+                <p class="text-gray-600 text-lg mt-4">A few jobs we&rsquo;re proud of.</p></div>
+            <div class="space-y-10">
+                <article class="card rounded-xl overflow-hidden"><div class="grid md:grid-cols-5">
+                    <div class="md:col-span-3 h-80 md:h-[26rem] grid grid-cols-3 grid-rows-2 gap-1">
+                        <div class="photo col-span-2 row-span-2"><img src="/work-4.jpeg" width="1200" height="1600" alt="Kitchen island with downlights and under-cabinet LED lighting" loading="lazy"></div>
+                        <div class="photo"><img src="/work-6.jpeg" width="1200" height="1600" alt="Open-plan kitchen-diner with recessed downlights" loading="lazy"></div>
+                        <div class="photo"><img src="/work-3.jpeg" width="1200" height="1600" alt="Kitchen with under-cabinet LED strip lighting" loading="lazy"></div>
+                    </div>
+                    <div class="md:col-span-2 p-8 flex flex-col justify-center">
+                        <p class="text-amber-600 font-semibold text-sm uppercase tracking-wide mb-2">Kitchen renovation</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Open-plan kitchen-diner</h3>
+                        <p class="text-gray-600">Full electrics for a new open-plan kitchen: recessed downlights, under-cabinet LED strip, and power for the island and appliances.</p>
+                    </div></div></article>
+                <article class="card rounded-xl overflow-hidden"><div class="grid md:grid-cols-5">
+                    <div class="md:col-span-2 p-8 flex flex-col justify-center order-2 md:order-1">
+                        <p class="text-amber-600 font-semibold text-sm uppercase tracking-wide mb-2">Bathroom renovation</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Feature-lit bathroom</h3>
+                        <p class="text-gray-600">Backlit LED mirror, recessed shower lighting, LED plinth lighting and a heated towel rail &mdash; all installed to bathroom zone regulations.</p>
+                    </div>
+                    <div class="md:col-span-3 h-80 md:h-[26rem] grid grid-cols-3 grid-rows-2 gap-1 order-1 md:order-2">
+                        <div class="photo col-span-2 row-span-2"><img src="/work-7.jpeg" width="720" height="960" alt="Bathroom with backlit LED mirror, shower downlight and plinth lighting" loading="lazy"></div>
+                        <div class="photo"><img src="/work-11.jpeg" width="1024" height="1365" alt="Backlit LED bathroom mirror" loading="lazy"></div>
+                        <div class="photo"><img src="/work-10.jpeg" width="720" height="960" alt="Walk-in shower with recessed lighting and heated towel rail" loading="lazy"></div>
+                    </div></div></article>
+                <article class="card rounded-xl overflow-hidden"><div class="grid md:grid-cols-5">
+                    <div class="md:col-span-3 grid grid-cols-2 gap-1">
+                        <div class="photo h-56 md:h-72"><img src="/work-1.jpeg" width="1600" height="1200" alt="Patio with lit steps, wall lights and uplit trees at night" loading="lazy"></div>
+                        <div class="photo h-56 md:h-72"><img src="/work-5.jpeg" width="1600" height="900" alt="Garden with spike lights and uplighting at night" loading="lazy"></div>
+                    </div>
+                    <div class="md:col-span-2 p-8 flex flex-col justify-center">
+                        <p class="text-amber-600 font-semibold text-sm uppercase tracking-wide mb-2">Outdoor lighting</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Garden &amp; patio lighting</h3>
+                        <p class="text-gray-600">Step lights, fence and wall lighting, and tree uplighting to make the garden usable after dark.</p>
+                    </div></div></article>
+            </div>
+            <div class="text-center mt-10"><a href="/projects/" class="inline-block border-2 border-amber-500 text-amber-700 px-7 py-3 rounded-lg font-bold hover:bg-amber-500 hover:text-white transition">See all projects</a></div>
+        </div>
+    </section>
+
+    <section id="trade" class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="accent-line mb-6"></div>
+                    <p class="text-amber-400 font-semibold tracking-wide uppercase text-sm mb-3">For builders &amp; trades</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">An electrician you can put on your jobs.</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">We work with builders, kitchen and bathroom fitters, carpenters and other trades across Cardiff. We turn up when we say, work around your programme, and leave the paperwork sorted.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/get-a-quote/" data-customer="Builder / trade" class="cta-button inline-block text-white px-8 py-3 rounded-lg font-bold text-lg">Talk to us about your next job</a>
+                        <a href="/builders-trades/" class="inline-block border-2 border-amber-400 text-white px-6 py-3 rounded-lg font-bold hover:bg-amber-400 hover:text-slate-900 transition">More for trades</a>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-5">
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6"><i class="fas fa-calendar-check text-amber-400 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-lg mb-1">Reliable &amp; on time</h3><p class="text-gray-300 text-sm">First and second fix booked in around your schedule &mdash; no holding up the plasterer.</p></div>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6"><i class="fas fa-file-signature text-amber-400 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-lg mb-1">Certificates handled</h3><p class="text-gray-300 text-sm">Electrical installation certificates and Building Regs notification done for you.</p></div>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6"><i class="fas fa-people-group text-amber-400 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-lg mb-1">Easy to work with</h3><p class="text-gray-300 text-sm">Clear communication with you and your client, and a tidy site when we leave.</p></div>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6"><i class="fas fa-shield-halved text-amber-400 text-2xl mb-3" aria-hidden="true"></i><h3 class="font-bold text-lg mb-1">Registered &amp; insured</h3><p class="text-gray-300 text-sm">NICEIC registered with full public liability insurance.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="photo rounded-xl shadow-lg aspect-[4/3]"><img src="/work-2.jpeg" width="1536" height="1024" alt="Bailey Electrical – finished kitchen with downlights" loading="lazy"></div>
+                <div>
+                    <div class="accent-line mb-6"></div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">How we work</h2>
+                    <p class="text-gray-700 text-lg mb-8 leading-relaxed">Bailey Electrical is a local, independent business. When you get in touch, you deal directly with the electrician doing the work &mdash; from the first visit to the final certificate. We take on fewer jobs and do them properly, rather than rushing from one to the next.</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4"><div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-file-invoice text-amber-600" aria-hidden="true"></i></div><div><h3 class="font-bold text-gray-900">Clear written quotes</h3><p class="text-gray-600 text-sm">A proper scope of work and a fixed price before we start, so there are no surprises.</p></div></div>
+                        <div class="flex gap-4"><div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-broom text-amber-600" aria-hidden="true"></i></div><div><h3 class="font-bold text-gray-900">Respect for your home</h3><p class="text-gray-600 text-sm">Dust sheets down, mess cleared up, and work planned so you can keep living in the house.</p></div></div>
+                        <div class="flex gap-4"><div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-comments text-amber-600" aria-hidden="true"></i></div><div><h3 class="font-bold text-gray-900">Straight communication</h3><p class="text-gray-600 text-sm">You&rsquo;ll know when we&rsquo;re coming, what we&rsquo;re doing, and what it costs.</p></div></div>
+                        <div class="flex gap-4"><div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-certificate text-amber-600" aria-hidden="true"></i></div><div><h3 class="font-bold text-gray-900">Certified &amp; insured</h3><p class="text-gray-600 text-sm">NICEIC registered, fully insured, and every job certified on completion.</p></div></div>
+                        <div class="flex gap-4"><div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-calendar-days text-amber-600" aria-hidden="true"></i></div><div><h3 class="font-bold text-gray-900">Planned work, not rushed call-outs</h3><p class="text-gray-600 text-sm">We focus on planned projects rather than 24/7 emergencies, so we can turn up when we say and give each job the time it needs.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="accent-line mx-auto mb-6"></div>
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">What our customers say</h2>
+            <p class="text-gray-600 text-lg mb-8">Most of our work comes from recommendations. Read what customers have said about us on Google.</p>
+            <!-- To feature real reviews, copy them word-for-word from Google with the reviewer's name as shown there. Never invent or edit reviews. -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href={biz.GOOGLE_REVIEWS} target="_blank" rel="noopener noreferrer" class="cta-button text-white px-7 py-3 rounded-lg font-bold"><i class="fab fa-google mr-2" aria-hidden="true"></i>Read our Google reviews</a>
+                <a href={biz.GOOGLE_WRITE_REVIEW} target="_blank" rel="noopener noreferrer" class="border-2 border-amber-500 text-amber-700 px-7 py-3 rounded-lg font-bold hover:bg-amber-500 hover:text-white transition"><i class="fas fa-star mr-2" aria-hidden="true"></i>Leave a review</a>
+            </div>
+        </div>
+    </section>
+    
+    
+<Areas />
+<Faq faq={homeFaq} />
+<QuoteSection />
+</Base>

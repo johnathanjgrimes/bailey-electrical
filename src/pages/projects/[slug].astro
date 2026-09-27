@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import { getCollection, render } from 'astro:content';
+import { crumbs, webPage, BIZ_ID, SITE } from '../../lib/schema';
+export async function getStaticPaths() {
+  const ps = await getCollection('projects');
+  return ps.map((p) => ({ params: { slug: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const { Content } = await render(p);
+const path = `/projects/${p.id}/`;
+const schema = [
+  { '@type': 'CreativeWork', '@id': `${SITE}${path}#project`, name: p.data.title, description: p.data.summary, creator: { '@id': BIZ_ID },
+    image: p.data.images.map((i) => ({ '@type': 'ImageObject', url: `${SITE}${i.src}`, caption: i.alt })), keywords: p.data.services.join(', ') },
+  webPage(path, p.data.title),
+  crumbs([['Home', '/'], ['Projects', '/projects/'], [p.data.title, path]]),
+];
+---
+<Base title={`${p.data.title} – ${p.data.category} | Bailey Electrical Cardiff`} description={p.data.summary} schema={schema} preload={p.data.images[0].src}>
+  <PageHero crumb="Projects" kicker={p.data.category} title={p.data.title} lead={p.data.summary} image={p.data.images[0].src} imageAlt={p.data.images[0].alt} />
+  <div class="bg-white py-14"><div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">{p.data.images.map((i) => <figure class="photo rounded-lg h-72"><img src={i.src} alt={i.alt} loading="lazy"></figure>)}</div>
+    <div class="flex flex-wrap gap-2 mb-8">{p.data.services.map((s) => <span class="text-sm rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-amber-800">{s}</span>)}</div>
+    <article class="prose-guide max-w-3xl"><Content /></article>
+  </div></div>
+  <QuoteSection />
+</Base>

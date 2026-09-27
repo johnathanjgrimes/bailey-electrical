@@ -1,0 +1,13 @@
+{
+  "_readme": "Mark's guide prices for the rewire quote builder. Set enabled to true once real figures are filled in. All prices in GBP including VAT (or excluding - set vatIncluded). Leave enabled false to show no prices.",
+  "enabled": false,
+  "vatIncluded": true,
+  "spread": 0.15,
+  "base": { "Flat": 0, "Terraced house": 0, "Semi-detached house": 0, "Detached house": 0, "Bungalow": 0 },
+  "perRoom": 0,
+  "perSocket": 0,
+  "lighting": { "Standard ceiling lights": 0, "Downlights": 0, "Downlights + LED feature lighting": 0 },
+  "extras": { "cu": 0, "alarms": 0, "usb": 0, "cooker": 0, "shower": 0, "fans": 0, "ufh": 0, "data": 0, "outlight": 0, "outsocket": 0, "office": 0 },
+  "occupiedUplift": 0.15,
+  "fixedPrices": { "EICR (house)": null, "EICR (flat)": null, "Consumer unit replacement": null }
+}

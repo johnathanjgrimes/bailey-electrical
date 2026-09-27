@@ -1,0 +1,19 @@
+---
+import biz from '../data/business.json';
+---
+<section id="areas" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-3 gap-10">
+      <div>
+        <div class="accent-line mb-6"></div>
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Areas we cover</h2>
+        <p class="text-gray-600 leading-relaxed">Based in Cardiff, covering the city and roughly 20 miles around it. For larger projects &mdash; rewires, extensions and renovations &mdash; we&rsquo;re happy to travel further.</p>
+        <p class="text-gray-600 leading-relaxed mt-4">Not sure? Type your postcode into any of our quote forms and it&rsquo;ll tell you straight away.</p>
+      </div>
+      <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+        <div class="card rounded-xl p-6"><h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-location-dot text-amber-500 mr-2" aria-hidden="true"></i>Electrician in Cardiff</h3><p class="text-gray-600 text-sm leading-7">{biz.CARDIFF_AREAS.join(', ')}</p></div>
+        <div class="card rounded-xl p-6"><h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-location-dot text-amber-500 mr-2" aria-hidden="true"></i>Surrounding areas</h3><p class="text-gray-600 text-sm leading-7">{biz.NEARBY_AREAS.join(', ')}</p></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,10 +1,17 @@
 {
   "name": "bailey-electrical",
-  "private": true,
   "scripts": {
-    "build": "python3 src/build.py && tailwindcss -i src/input.css -o assets/styles.css --minify"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "devDependencies": {
-    "tailwindcss": "^3.4.17"
-  }
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.18.2",
+    "autoprefixer": "^10.6.1",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19"
+  },
+  "private": true,
+  "type": "module"
 }

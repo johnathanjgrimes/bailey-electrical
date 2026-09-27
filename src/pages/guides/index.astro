@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getCollection } from 'astro:content';
+import { crumbs, webPage } from '../../lib/schema';
+const guides = await getCollection('guides');
+const tools = [
+  { href: '/rewire-cost-cardiff/', title: 'How much does a rewire cost in Cardiff?', text: 'Typical prices, what affects them and how to compare quotes.', kicker: 'Prices' },
+  { href: '/do-i-need-a-rewire/', title: 'Does my house need rewiring?', text: 'A free seven-question check.', kicker: 'Free tool' },
+  { href: '/rewire-quote-builder/', title: 'Rewire quote builder', text: 'Plan sockets, lighting and extras room by room.', kicker: 'Free tool' },
+];
+---
+<Base title="Electrical Guides for Cardiff Homeowners & Landlords | Bailey Electrical" description="Plain-English guides from a Cardiff electrician: rewire costs, fuse box types, landlord EICR rules in Wales, and free tools to plan your electrics."
+  schema={[webPage('/guides/', 'Guides'), crumbs([['Home', '/'], ['Guides', '/guides/']])]}>
+  <PageHero crumb="Guides" kicker="Guides &amp; tools" title="Plain-English electrical guides" lead="Straight answers to the questions we get asked most &mdash; from what a rewire costs to what the landlord rules in Wales actually say." cta={false} />
+  <section class="py-16 bg-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {[...tools.map((t) => ({ ...t })), ...guides.map((g) => ({ href: `/guides/${g.id}/`, title: g.data.title, text: g.data.description, kicker: g.data.kicker }))].map((c) => (
+      <a href={c.href} class="card rounded-xl p-6 block"><span class="block text-amber-600 font-semibold text-sm uppercase tracking-wide mb-2">{c.kicker}</span><span class="block text-xl font-bold text-gray-900 mb-2">{c.title}</span><span class="block text-gray-600 text-sm">{c.text}</span></a>
+    ))}
+  </div></section>
+</Base>

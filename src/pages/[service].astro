@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Faq from '../components/Faq.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import TrustBar from '../components/TrustBar.astro';
+import biz from '../data/business.json';
+import services from '../data/services.json';
+import { faqSchema, crumbs, webPage, stripTags, areaServed, BIZ_ID, SITE } from '../lib/schema';
+
+export function getStaticPaths() {
+  return services.map((s: any) => ({ params: { service: s.slug }, props: { s } }));
+}
+const { s } = Astro.props as any;
+const path = `/${s.slug}/`;
+const others = services.filter((o: any) => o.slug !== s.slug);
+const customer = s.slug === 'builders-trades' ? 'Builder / trade' : s.slug.includes('eicr') ? 'Landlord / letting agent' : undefined;
+const job = ({
+  'rewires-cardiff': 'Rewire (full or partial)', 'consumer-unit-upgrades-cardiff': 'Consumer unit upgrade',
+  'extensions-renovations-electrician-cardiff': 'Extension / renovation', 'eicr-landlord-certificates-cardiff': 'EICR / landlord certificate',
+} as Record<string, string>)[s.slug];
+const related = ({
+  'rewires-cardiff': [['/rewire-cost-cardiff/', 'How much does a rewire cost?'], ['/rewire-quote-builder/', 'Build your rewire quote'], ['/do-i-need-a-rewire/', 'Do I need a rewire?']],
+  'consumer-unit-upgrades-cardiff': [['/guides/fuse-box-types/', 'Guide: fuse box types explained'], ['/do-i-need-a-rewire/', 'Do I need a rewire?']],
+  'eicr-landlord-certificates-cardiff': [['/guides/landlord-eicr-wales/', 'Guide: landlord EICRs in Wales'], ['/do-i-need-a-rewire/', 'Do I need a rewire?']],
+  'extensions-renovations-electrician-cardiff': [['/projects/', 'See recent projects'], ['/rewire-quote-builder/', 'Plan the electrics room by room']],
+  'builders-trades': [['/projects/', 'See recent projects'], ['/extensions-renovations-electrician-cardiff/', 'Renovation electrics']],
+} as Record<string, string[][]>)[s.slug] || [];
+const schema = [
+  { '@type': 'Service', '@id': `${SITE}${path}#service`, name: stripTags(s.h1), serviceType: s.service_type, description: stripTags(s.lead),
+    url: `${SITE}${path}`, provider: { '@id': BIZ_ID }, areaServed: areaServed(), image: `${SITE}/${s.image}` },
+  webPage(path, stripTags(s.title), { about: { '@id': `${SITE}${path}#service` } }),
+  crumbs([['Home', '/'], [stripTags(s.short), path]]),
+  faqSchema(s.faq, `${SITE}${path}`),
+];
+---
+<Base title={stripTags(s.title)} description={s.description} schema={schema} preload={`/${s.image}`}>
+  <PageHero crumb={s.short} kicker={s.kicker} title={s.h1} lead={s.lead} image={`/${s.image}`} imageAlt={s.image_alt} />
+  <TrustBar />
+  <div class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-12">
+      <article class="lg:col-span-2">
+        {s.sections.map((sec: any) => (
+          <section class="mb-12"><h2 class="text-3xl font-bold text-gray-900 mb-4" set:html={sec.h} /><div class="prose-body" set:html={sec.html} /></section>
+        ))}
+      </article>
+      <aside class="space-y-6">
+        <div class="card rounded-xl p-6">
+          <h2 class="font-bold text-gray-900 mb-3">Why {biz.NAME}</h2>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>NICEIC registered &amp; fully insured</li>
+            <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Clear, fixed written quotes</li>
+            <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Tidy, respectful work</li>
+            <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Certified &amp; notified on completion</li>
+            <li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>Trusted by local builders</li>
+          </ul>
+          <a href="#quote" class="cta-button block text-center text-white px-6 py-3 rounded-lg font-bold mt-5">Get a quote</a>
+        </div>
+        {related.length > 0 && (
+          <div class="card rounded-xl p-6 border-amber-300">
+            <h2 class="font-bold text-gray-900 mb-3">Helpful next steps</h2>
+            <ul class="space-y-2 text-sm">{related.map(([h, t]) => <li><a href={h} class="text-amber-700 font-semibold hover:underline"><i class="fas fa-arrow-right mr-2" aria-hidden="true"></i>{t}</a></li>)}</ul>
+          </div>
+        )}
+        <div class="card rounded-xl p-6">
+          <h2 class="font-bold text-gray-900 mb-3">Other services</h2>
+          <ul class="space-y-2 text-sm text-gray-700">{others.map((o: any) => <li><a href={`/${o.slug}/`} class="hover:text-amber-700"><i class="fas fa-angle-right text-amber-500 mr-2" aria-hidden="true"></i><span set:html={o.card_title} /></a></li>)}</ul>
+        </div>
+        <div class="card rounded-xl p-6">
+          <h2 class="font-bold text-gray-900 mb-3">Areas covered</h2>
+          <p class="text-sm text-gray-600 leading-6">Cardiff ({biz.CARDIFF_AREAS.slice(0, 8).join(', ')} and more), {biz.NEARBY_AREAS.join(', ')}. Further for larger projects.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <Faq faq={s.faq} />
+  <QuoteSection customer={customer} job={job} />
+</Base>

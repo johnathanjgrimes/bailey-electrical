@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Faq from '../components/Faq.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import TrustBar from '../components/TrustBar.astro';
+import pricing from '../data/pricing.json';
+import { faqSchema, crumbs, webPage, BIZ_ID, SITE } from '../lib/schema';
+
+const path = '/rewire-cost-cardiff/';
+const market = [
+  ['1-bed flat', '£3,900'], ['2-bed flat', '£4,800'], ['2-bed house', '£4,800'],
+  ['3-bed house', '£6,225'], ['4-bed house', '£7,730'], ['5-bed house', '£10,000'],
+];
+const fixed = Object.entries(pricing.fixedPrices).filter(([, v]) => v);
+const faq = [
+  { q: 'How much does it cost to rewire a 3-bed house in Cardiff?', a: 'Published 2026 guides put a typical three-bedroom house rewire at roughly £4,450 to £8,000 including VAT, with Cardiff listings ranging from about £4,300 to £8,500. The price for your home depends on its size, how many sockets and lights you want, whether you are living in it during the work, and access. We give a fixed written quote after a visit.' },
+  { q: 'Why do rewire quotes vary so much?', a: 'Quotes often include different things. Check whether the price covers a new consumer unit, smoke and heat alarms, the number of sockets and lights, testing and certification, Building Regulations notification, and making good. A cheaper quote with fewer sockets and no certificate is not a like-for-like comparison.' },
+  { q: 'Does a rewire price include plastering?', a: 'Rewiring involves chasing walls and lifting floorboards. Plastering and decorating are usually done afterwards by a plasterer or your builder. We will tell you exactly what is and is not included in your written quote.' },
+  { q: 'How long does a rewire take?', a: 'As a rough guide, a typical three-bedroom house takes around one to two weeks. Empty or mid-renovation houses are quicker than occupied ones.' },
+  { q: 'Is it cheaper to rewire when the house is empty?', a: 'Usually, yes. Working around furniture and keeping power on for people living in the house takes longer. If you are renovating or between tenants, that is the best time to rewire.' },
+  { q: 'Can I get a price online?', a: 'Use our free rewire quote builder to choose sockets, lighting and extras room by room and send it to us. We will come back to you to arrange a visit and a fixed written price.' },
+];
+const schema = [
+  { '@type': 'Article', '@id': `${SITE}${path}#article`, headline: 'How much does a house rewire cost in Cardiff?',
+    description: 'Typical rewire prices in Cardiff and the UK, what affects the cost, what should be included and how to compare quotes.',
+    author: { '@id': BIZ_ID }, publisher: { '@id': BIZ_ID }, dateModified: '2026-09-27', datePublished: '2026-09-27', inLanguage: 'en-GB',
+    about: { '@type': 'Service', name: 'House rewiring', provider: { '@id': BIZ_ID } },
+    citation: ['https://www.checkatrade.com/blog/cost-guides/rewire-house-cost/', 'https://www.hamuch.com/cost/rewire-house/cardiff'] },
+  webPage(path, 'Rewire cost in Cardiff'),
+  crumbs([['Home', '/'], ['Rewire cost', path]]),
+  faqSchema(faq, `${SITE}${path}`),
+];
+---
+<Base title="Rewire Cost in Cardiff (2026 Prices) | House Rewiring Prices | Bailey Electrical"
+  description="How much does a house rewire cost in Cardiff? Typical 2026 prices by property size, what affects the cost, what a quote should include, and how to get a fixed price."
+  schema={schema}>
+  <PageHero crumb="Rewire cost" kicker="Prices" title="How much does a house rewire cost in Cardiff?"
+    lead="Honest numbers, what changes the price, and what a proper quote should include &mdash; so you can compare like for like." cta={false}>
+    <div class="flex gap-4 flex-wrap">
+      <a href="/rewire-quote-builder/" class="cta-button text-white px-8 py-3 rounded-lg font-bold text-lg"><i class="fas fa-sliders mr-2" aria-hidden="true"></i>Build your quote</a>
+      <a href="/get-a-quote/?job=Rewire%20(full%20or%20partial)" class="border-2 border-amber-400 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-400 hover:text-slate-900 transition">Book a survey</a>
+    </div>
+  </PageHero>
+  <TrustBar />
+
+  <div class="bg-white py-14"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose-guide">
+    <div class="rounded-xl border-2 border-amber-300 bg-amber-50 p-6 mb-10 not-prose">
+      <p class="text-sm uppercase tracking-wide font-semibold text-amber-700 mb-2">Quick answer</p>
+      <p class="text-gray-800 text-lg leading-relaxed">A full rewire of a typical <strong>three-bedroom house</strong> generally costs somewhere around <strong>£4,500 to £8,000</strong> including VAT. Published 2026 figures put the UK average for a 3-bed house at <strong>£6,225</strong>, and Cardiff listings range from about <strong>£4,300 to £8,500</strong>. The price for your home depends on its size, how many sockets and lights you want, whether you&rsquo;re living in it, and access.</p>
+    </div>
+
+    {pricing.enabled && fixed.length > 0 && (
+      <section>
+        <h2>Our guide prices</h2>
+        <table><thead><tr><th>Job</th><th>From</th></tr></thead><tbody>{fixed.map(([k, v]) => <tr><td>{k}</td><td>£{Number(v).toLocaleString('en-GB')}</td></tr>)}</tbody></table>
+      </section>
+    )}
+
+    <h2>Typical rewire prices by property size</h2>
+    <p>These are published UK averages for 2026, including VAT. They&rsquo;re a useful starting point &mdash; not a quote.</p>
+    <table>
+      <thead><tr><th>Property</th><th>Average full rewire (UK, 2026)</th></tr></thead>
+      <tbody>{market.map(([p, v]) => <tr><td>{p}</td><td>{v}</td></tr>)}</tbody>
+    </table>
+    <p class="text-sm">Source: <a href="https://www.checkatrade.com/blog/cost-guides/rewire-house-cost/" target="_blank" rel="noopener">Checkatrade rewire cost guide</a> (updated June 2026), which gives a typical range of £4,450&ndash;£8,000 for a 3-bed house. Cardiff range: <a href="https://www.hamuch.com/cost/rewire-house/cardiff" target="_blank" rel="noopener">HaMuch Cardiff listings</a> (£4,300&ndash;£8,500, average £5,760).</p>
+
+    <h2>What affects the price</h2>
+    <ul>
+      <li><strong>Size of the property</strong> &mdash; more rooms means more circuits and more cable.</li>
+      <li><strong>Sockets and lighting</strong> &mdash; most older homes need far more sockets than they have, and downlights or LED feature lighting take longer than standard ceiling lights.</li>
+      <li><strong>Whether you&rsquo;re living in it</strong> &mdash; an empty or mid-renovation house is quicker than working around furniture and keeping power on each night.</li>
+      <li><strong>Access</strong> &mdash; floor types, solid walls, lofts and cellars all affect how cables are run.</li>
+      <li><strong>Extras</strong> &mdash; a new consumer unit, mains smoke and heat alarms, outdoor lighting, shower and cooker circuits, data points.</li>
+    </ul>
+
+    <h2>What a proper rewire quote should include</h2>
+    <p>When you compare quotes, check they cover the same things. Our written quotes set out:</p>
+    <ul>
+      <li>A clear list of sockets, switches and lighting points, room by room</li>
+      <li>A new consumer unit with RCBO protection</li>
+      <li>Smoke and heat alarms, if you want them</li>
+      <li>Full testing and an <strong>Electrical Installation Certificate</strong></li>
+      <li><strong>Building Regulations notification</strong> through our registration scheme</li>
+      <li>Clearing up at the end of each day</li>
+      <li>What&rsquo;s <em>not</em> included &mdash; usually plastering and decorating, which your plasterer or builder does afterwards</li>
+    </ul>
+    <blockquote>A much cheaper quote often means fewer sockets, no new consumer unit, or no certificate. Always compare like for like &mdash; and check the electrician is registered with a scheme such as NICEIC.</blockquote>
+
+    <h2>How to keep the cost down</h2>
+    <ul>
+      <li><strong>Rewire before you decorate</strong> &mdash; or during a renovation, when walls and floors are already opened up.</li>
+      <li><strong>Rewire when the house is empty</strong> &mdash; between owners or between tenants.</li>
+      <li><strong>Decide socket and light positions up front</strong> &mdash; moving things later costs more. Our <a href="/rewire-quote-builder/">quote builder</a> helps.</li>
+      <li><strong>Consider a partial rewire</strong> if the wiring is sound in some areas &mdash; an <a href="/eicr-landlord-certificates-cardiff/">EICR</a> will show you.</li>
+    </ul>
+
+    <h2>How long does it take?</h2>
+    <p>As a rough guide, a typical three-bedroom house takes around <strong>one to two weeks</strong>. We&rsquo;ll give you a realistic timescale with your quote and agree dates that work around you or your builder.</p>
+
+    <h2>Not sure you need a rewire?</h2>
+    <p>Take our free <a href="/do-i-need-a-rewire/">1-minute rewire check</a>. It&rsquo;ll tell you whether your electrics sound fine, are due an inspection, or are likely to need a rewire.</p>
+  </div></div>
+
+  <section class="py-14 bg-slate-900 text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6">
+      <a href="/rewire-quote-builder/" class="rounded-xl bg-white/5 border border-white/10 p-7 block hover:border-amber-400">
+        <i class="fas fa-sliders text-amber-400 text-2xl mb-3" aria-hidden="true"></i>
+        <h2 class="text-2xl font-bold mb-2">Build your rewire quote</h2>
+        <p class="text-gray-300">Choose sockets, lighting and extras room by room. Takes two minutes.</p>
+      </a>
+      <a href="/get-a-quote/?job=Rewire%20(full%20or%20partial)" class="rounded-xl bg-white/5 border border-white/10 p-7 block hover:border-amber-400">
+        <i class="fas fa-calendar-check text-amber-400 text-2xl mb-3" aria-hidden="true"></i>
+        <h2 class="text-2xl font-bold mb-2">Book a survey visit</h2>
+        <p class="text-gray-300">We&rsquo;ll look at the property and give you a fixed written price.</p>
+      </a>
+    </div>
+  </section>
+  <Faq faq={faq} />
+  <QuoteSection job="Rewire (full or partial)" />
+</Base>

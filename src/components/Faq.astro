@@ -1,0 +1,14 @@
+---
+interface Props { faq: { q: string; a: string }[]; heading?: string; bg?: string }
+const { faq, heading = 'Frequently asked questions', bg = 'bg-gray-50' } = Astro.props;
+---
+<section id="faq" class={`py-20 ${bg}`}>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10"><div class="accent-line mx-auto mb-6"></div><h2 class="text-4xl font-bold text-gray-900">{heading}</h2></div>
+    <div class="space-y-3">
+      {faq.map(({ q, a }) => (
+        <details class="faq card rounded-xl p-5"><summary class="font-bold text-gray-900 cursor-pointer">{q}</summary><p class="text-gray-600 mt-3 leading-relaxed">{a}</p></details>
+      ))}
+    </div>
+  </div>
+</section>

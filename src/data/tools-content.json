@@ -1,0 +1,68 @@
+[
+ {
+  "key": "qb",
+  "sections": [
+   {
+    "h": "What affects the cost of a rewire?",
+    "html": "<p>Every rewire is priced on the property, but these are the things that make the biggest difference:</p>\n<ul class=\"list\">\n<li><strong>Size of the property</strong> &mdash; the number of rooms and circuits.</li>\n<li><strong>Number of sockets and lights</strong> &mdash; most older homes need far more sockets than they have.</li>\n<li><strong>Lighting</strong> &mdash; downlights and LED feature lighting take longer than standard ceiling lights.</li>\n<li><strong>Whether the house is empty</strong> &mdash; working around furniture and people takes longer than an empty or mid-renovation house.</li>\n<li><strong>Access</strong> &mdash; floor types, lofts and solid walls all affect how cables are run.</li>\n<li><strong>Extras</strong> &mdash; a new consumer unit, smoke and heat alarms, outdoor lighting, shower and cooker circuits.</li>\n</ul>\n<p>That&rsquo;s why the quote builder asks about each room. It gives us enough to understand the job before we visit, so the written quote you get is accurate.</p>"
+   },
+   {
+    "h": "What happens after you send it?",
+    "html": "<ol class=\"list\">\n<li>We look through your requirements and get in touch to arrange a visit.</li>\n<li>We check the existing installation, access and anything that affects the work.</li>\n<li>You get a fixed written quote with a clear scope of work.</li>\n<li>We agree dates that work around you or your builder.</li>\n</ol>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "How much does it cost to rewire a house in Cardiff?",
+    "a": "The price depends mainly on the size of the property, how many sockets and lights you want, whether the house is occupied, and access. Use the quote builder to tell us what you need and we'll give you a fixed written quote after a visit."
+   },
+   {
+    "q": "How many sockets should each room have?",
+    "a": "As a rough guide: kitchens around six double sockets, living rooms four to six, main bedrooms three to four, other bedrooms two to three, and a couple in the hallway. It depends on how you use each room, which is why the builder lets you adjust them."
+   },
+   {
+    "q": "Is a new consumer unit included in a full rewire?",
+    "a": "Yes, a full rewire normally includes a new consumer unit, and the builder adds it automatically. For a partial rewire we'll check whether your existing board is suitable."
+   },
+   {
+    "q": "Can I use the quote builder for a partial rewire?",
+    "a": "Yes. Choose 'Partial rewire' and tick the areas you want doing, such as a kitchen, extension or loft."
+   }
+  ]
+ },
+ {
+  "key": "rc",
+  "sections": [
+   {
+    "h": "Signs your house needs rewiring",
+    "html": "<p>You can&rsquo;t tell for certain without testing, but these are the most common signs that a home&rsquo;s wiring is at the end of its life:</p>\n<ul class=\"list\">\n<li><strong>Old cable types</strong> &mdash; black rubber, fabric-covered or lead-sheathed cables were used before the 1960s and the insulation becomes brittle with age.</li>\n<li><strong>An old fuse box</strong> &mdash; a board with pull-out rewireable fuses and no RCD protection.</li>\n<li><strong>Round-pin sockets</strong>, sockets in skirting boards, or brown and black bakelite switches.</li>\n<li><strong>Warning signs</strong> &mdash; burning smells, scorch marks, warm sockets, flickering lights or regular tripping.</li>\n<li><strong>Not enough sockets</strong> for modern life, with extension leads in every room.</li>\n</ul>\n<p>Red and black wires on their own aren&rsquo;t a problem &mdash; those were the standard colours in the UK until 2006, so plenty of sound installations still have them.</p>"
+   },
+   {
+    "h": "How old is too old?",
+    "html": "<p>There&rsquo;s no fixed expiry date, but PVC-insulated wiring installed from the 1960s onwards typically lasts a long time if it hasn&rsquo;t been damaged or overloaded. Wiring from before then, and any installation that has never been tested, is worth checking. An <a href=\"/eicr-landlord-certificates-cardiff/\" class=\"text-amber-700 font-semibold underline\">EICR</a> is the way to find out for sure.</p>"
+   },
+   {
+    "h": "Rewire or just an EICR?",
+    "html": "<p>If you&rsquo;re not sure, start with an Electrical Installation Condition Report. It tells you the condition of the whole installation and whether anything needs fixing. Sometimes the answer is a new consumer unit or a few repairs rather than a full rewire. If a rewire is needed, the report shows why, and you can use our <a href=\"/rewire-quote-builder/\" class=\"text-amber-700 font-semibold underline\">rewire quote builder</a> to plan it.</p>"
+   }
+  ],
+  "faq": [
+   {
+    "q": "How do I know if my house needs rewiring?",
+    "a": "Common signs are old rubber or fabric-covered cables, an old fuse box with rewireable fuses, round-pin sockets, scorch marks or warm sockets, and lights that flicker. The only way to know for sure is an Electrical Installation Condition Report (EICR) carried out by a qualified electrician."
+   },
+   {
+    "q": "Do red and black wires mean I need a rewire?",
+    "a": "Not on their own. Red and black were the standard UK wiring colours until 2006. What matters is the type and condition of the cable, which an EICR will check."
+   },
+   {
+    "q": "How often should house wiring be checked?",
+    "a": "For owner-occupied homes an EICR is generally recommended every 10 years, and when you buy a property. Rented homes in Wales need one at least every five years."
+   },
+   {
+    "q": "Is this checker a substitute for an inspection?",
+    "a": "No. It's a quick guide based on what you can see. Only testing by a qualified electrician can confirm the condition of your wiring."
+   }
+  ]
+ }
+]

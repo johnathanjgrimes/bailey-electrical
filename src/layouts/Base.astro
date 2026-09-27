@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import biz from '../data/business.json';
+import config from '../data/config.json';
+import pricing from '../data/pricing.json';
+import { businessSchema } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: object[];
+  preload?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+const { title, description, schema = [], preload, ogImage = '/assets/og-image.jpg', noindex = false } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const graph = { '@context': 'https://schema.org', '@graph': [businessSchema(), ...schema] };
+const beConfig = {
+  email: biz.EMAIL, phone: biz.PHONE_DISPLAY, web3formsKey: config.web3formsKey,
+  base: config.base, coreRadiusMiles: config.coreRadiusMiles, serviceRadiusMiles: config.serviceRadiusMiles,
+};
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={url}>
+  <meta name="robots" content={noindex ? 'noindex' : 'index, follow, max-image-preview:large, max-snippet:-1'}>
+  <meta name="theme-color" content="#0f172a">
+  <meta name="geo.region" content="GB-CRF">
+  <meta name="geo.placename" content="Cardiff">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content={biz.NAME}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={url}>
+  <meta property="og:image" content={new URL(ogImage, Astro.site).href}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={new URL(ogImage, Astro.site).href}>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM summary">
+  <link rel="sitemap" href="/sitemap-index.xml">
+  {preload && <link rel="preload" as="image" href={preload} fetchpriority="high">}
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+  <script is:inline set:html={`window.BE_CONFIG=${JSON.stringify(beConfig)};window.BE_PRICING=${JSON.stringify(pricing)};`} />
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <Nav />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+  <script is:inline src="/js/site.js" defer></script>
+  <slot name="scripts" />
+</body>
+</html>

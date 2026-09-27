@@ -6,6 +6,19 @@ What's already done on the website, and what still needs doing by a person (most
 
 ## ✅ Done on the website
 
+### Site platform
+- [x] Rebuilt in Astro: still plain static pages (fast, SEO-friendly), deployed free to GitHub Pages by GitHub Actions
+- [x] Guides and case studies are Markdown files, so adding content is easy
+
+### Conversion (for people ready to book)
+- [x] `/rewire-cost-cardiff/` – honest price guide with cited 2026 market figures, what a quote should include, how to compare quotes
+- [x] `/get-a-quote/` – dedicated quote page with survey-day picker and "what happens next"
+- [x] `/rewire-quote-builder/` – room-by-room rewire planner; shows a guide price once `pricing.json` is enabled
+- [x] `/do-i-need-a-rewire/` – 7-question check that routes to the right service
+- [x] Postcode check on every form (distance from Cardiff, sets expectations on travel)
+- [x] Real form sending via Web3Forms (needs the free key – see README), falling back to email
+- [x] Prices link in the main nav and a prices section on the home page
+
 ### Pages & content
 - [x] Home page rewritten around the work Mark wants (rewires, renovations, extensions, consumer units, lighting)
 - [x] Separate page for each main service, each with 1,000+ words of useful, specific content:
@@ -14,6 +27,8 @@ What's already done on the website, and what still needs doing by a person (most
   - `/extensions-renovations-electrician-cardiff/`
   - `/eicr-landlord-certificates-cardiff/` (includes the Renting Homes (Wales) EICR rules)
   - `/builders-trades/`
+- [x] Guides: `/guides/fuse-box-types/`, `/guides/landlord-eicr-wales/` (Welsh rules – most competitors quote England's)
+- [x] Project case studies: `/projects/`
 - [x] FAQ sections on every page, written as the questions people actually type or ask AI
 - [x] "Who we work with" section (homeowners, builders, landlords, small businesses)
 - [x] Areas we cover section naming the Cardiff neighbourhoods and nearby towns
@@ -25,7 +40,7 @@ What's already done on the website, and what still needs doing by a person (most
 - [x] Unique `<title>` and meta description on every page, with "Cardiff" and the service in them
 - [x] Canonical URLs
 - [x] One `<h1>` per page and a sensible heading structure
-- [x] `sitemap.xml` listing every page
+- [x] `sitemap-index.xml` listing every page (generated automatically)
 - [x] `robots.txt` allowing all search engines and pointing to the sitemap
 - [x] Custom `404.html` page (not indexed)
 - [x] Internal links between the home page and service pages, plus breadcrumbs
@@ -60,11 +75,21 @@ What's already done on the website, and what still needs doing by a person (most
 
 ## ⬜ To do – needs Mark, John or Mark's partner
 
+### 0. Go live
+- [ ] Push the `site-refresh` branch, check it, merge into `main`
+- [ ] GitHub → repo **Settings → Pages → Source: GitHub Actions** (one-time switch)
+- [ ] Check the custom domain still shows `bailey-electrical.co.uk` there and **Enforce HTTPS** is ticked
+- [ ] Get a free Web3Forms key and add it to `src/data/config.json`
+- [ ] In Search Console, submit `https://bailey-electrical.co.uk/sitemap-index.xml`
+
 ### 1. Check the facts on the site (before anything else)
 - [ ] Confirm **NICEIC registration** is current, and send John the registration number to display (the site says it in several places)
 - [ ] Confirm the **areas list** (remove anywhere Mark doesn't want to go)
 - [ ] Confirm **services**: EV chargers? Small commercial? Emergency work? (EV and 24/7 are left off for now)
 - [ ] Add **town names** to the three project write-ups if possible (e.g. "Kitchen extension, Penarth")
+- [ ] Check the "what our quotes include" list on the prices page matches how Mark quotes (RCBO boards, clearing up daily, plastering not included)
+- [ ] Fill in `src/data/pricing.json` with Mark's real figures and set `enabled: true`
+- [ ] Add more case studies with before/after photos – rivals rarely do this and it wins trust
 
 ### 2. Google Business Profile – the single biggest thing for local leads
 This is what shows up in Google Maps, the "map pack" at the top of local searches, and it feeds Google AI Overviews.
@@ -87,7 +112,7 @@ This is what shows up in Google Maps, the "map pack" at the top of local searche
 - [ ] Once there are good reviews, John can add a few **word-for-word** to the website (never edit or invent them – it's against UK consumer law and Google's policies)
 
 ### 4. Search engines
-- [ ] **Google Search Console** – <https://search.google.com/search-console>: add `bailey-electrical.co.uk` (verify with a DNS TXT record), submit `https://bailey-electrical.co.uk/sitemap.xml`, then use "URL inspection → Request indexing" on each page
+- [ ] **Google Search Console** – <https://search.google.com/search-console>: add `bailey-electrical.co.uk` (verify with a DNS TXT record), submit `https://bailey-electrical.co.uk/sitemap-index.xml`, then use "URL inspection → Request indexing" on each page
 - [ ] **Bing Webmaster Tools** – <https://www.bing.com/webmasters>: import from Search Console and submit the sitemap. **This is what ChatGPT search draws on**, so it's worth the five minutes
 - [ ] **Bing Places for Business** – <https://www.bingplaces.com>: import from the Google Business Profile
 - [ ] **Apple Business Connect** – <https://businessconnect.apple.com>: gets the business into Apple Maps and Siri
