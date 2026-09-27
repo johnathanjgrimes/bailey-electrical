@@ -6,4 +6,6 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory' },
   integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
+  // Allow temporary preview links (cloudflared quick tunnels) to reach the dev server
+  vite: { server: { allowedHosts: ['.trycloudflare.com'] }, preview: { allowedHosts: ['.trycloudflare.com'] } },
 });
