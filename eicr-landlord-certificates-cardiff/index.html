@@ -176,6 +176,7 @@
                 <a href="/" aria-label="Bailey Electrical home"><img src="/logo.svg" alt="Bailey Electrical" width="150" height="50" class="h-11 w-auto"></a>
                 <div class="hidden md:flex space-x-7 text-sm font-medium"><a href="/#services" class="nav-link">Services</a>
 <a href="/#work" class="nav-link">Our Work</a>
+<a href="/rewire-quote-builder/" class="nav-link">Quote Builder</a>
 <a href="/builders-trades/" class="nav-link">Builders &amp; Trades</a>
 <a href="/#areas" class="nav-link">Areas</a>
 <a href="/#quote" class="nav-link">Contact</a></div>
@@ -188,6 +189,7 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 px-4 pb-4 text-sm"><a href="/#services" class="block py-3 border-b border-slate-700 nav-link">Services</a>
 <a href="/#work" class="block py-3 border-b border-slate-700 nav-link">Our Work</a>
+<a href="/rewire-quote-builder/" class="block py-3 border-b border-slate-700 nav-link">Quote Builder</a>
 <a href="/builders-trades/" class="block py-3 border-b border-slate-700 nav-link">Builders &amp; Trades</a>
 <a href="/#areas" class="block py-3 border-b border-slate-700 nav-link">Areas</a>
 <a href="/#quote" class="block py-3 border-b border-slate-700 nav-link">Contact</a>
@@ -325,6 +327,8 @@
 <li><a href="/builders-trades/" class="hover:text-amber-400">For builders & trades</a></li></ul>
                 </div>
                 <div>
+                    <h2 class="font-bold text-amber-400 mb-4">Free tools</h2>
+                    <ul class="space-y-2 text-gray-400 text-sm mb-6"><li><a href="/rewire-quote-builder/" class="hover:text-amber-400">Rewire quote builder</a></li><li><a href="/do-i-need-a-rewire/" class="hover:text-amber-400">Do I need a rewire?</a></li></ul>
                     <h2 class="font-bold text-amber-400 mb-4">Areas</h2>
                     <p class="text-gray-400 text-sm leading-6">Cardiff, Penarth, Dinas Powys, Barry, Sully, Vale of Glamorgan, Cowbridge, Llantrisant, Pontyclun, Pontypridd, Caerphilly, Newport</p>
                 </div>
@@ -357,6 +361,9 @@
             a.addEventListener('click', function () { var s = document.getElementById('q-customer'); if (s) s.value = a.dataset.customer; });
         });
         var f = document.getElementById('quote-form');
+        if (f) { try { var qs = new URLSearchParams(location.search);
+            if (qs.get('job')) Array.prototype.forEach.call(f.elements.job.options, function (o) { if (o.text === qs.get('job')) f.elements.job.value = o.value; });
+            if (qs.get('details')) f.elements.details.value = qs.get('details'); } catch (err) {} }
         if (f) f.addEventListener('submit', function (e) {
             e.preventDefault();
             var msg = document.getElementById('q-msg');
@@ -370,5 +377,6 @@
             msg.textContent = 'Your email app should open now. If it doesn\u2019t, call us on 07590 275205.'; msg.className = 'text-sm text-gray-600';
         });
     </script>
+
 </body>
 </html>

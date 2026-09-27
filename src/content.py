@@ -42,6 +42,14 @@ HOME_FAQ = [
      "We concentrate on planned work rather than a 24/7 emergency service, which means we can give every job "
      "proper time and turn up when we say we will. If you have an electrical problem, call us and we'll help "
      "where we can."),
+    ("How long does a house rewire take?",
+     "As a rough guide, a typical three-bedroom house takes around one to two weeks, depending on size, access and whether the house is empty. We'll give you a realistic timescale with your quote."),
+    ("Do you work directly for homeowners?",
+     "Yes. You deal directly with the electrician doing the work, from the first visit to the final certificate. We also work as part of a builder's team on renovation projects."),
+    ("Do you take on small jobs?",
+     "Our focus is planned work such as rewires, consumer units, renovations and lighting projects. We can often fit smaller jobs in when they're in Cardiff or alongside other work, so it's always worth asking."),
+    ("How can I get an idea of what my rewire involves before you visit?",
+     "Use our free rewire quote builder at bailey-electrical.co.uk/rewire-quote-builder to choose sockets, lighting and extras room by room, then send it to us for a written quote. Not sure if you need a rewire? Try the 1-minute 'Do I need a rewire?' check."),
     ("Do you do landlord electrical certificates in Wales?",
      "Yes. We carry out Electrical Installation Condition Reports (EICRs) for landlords and letting agents "
      "across Cardiff, which landlords in Wales need at least every five years under the Renting Homes (Wales) "

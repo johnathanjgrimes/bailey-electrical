@@ -11,6 +11,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from content import *  # noqa: E402,F403
+import tools  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAY = datetime.date.today().isoformat()
@@ -50,6 +51,18 @@ def business_schema():
             "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": strip_tags(s["h1"]), "url": f"{SITE}/{s['slug']}/"}} for s in SERVICES],
         },
         "sameAs": [FACEBOOK],
+        "slogan": "Rewires, renovations & extensions — done properly.",
+        "knowsLanguage": "en-GB",
+        "currenciesAccepted": "GBP",
+        "memberOf": {"@type": "Organization", "name": "NICEIC", "url": "https://niceic.com/"},
+        "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": PHONE_INTL, "email": EMAIL,
+                         "areaServed": "GB", "availableLanguage": "en-GB"},
+        "potentialAction": [
+            {"@type": "CommunicateAction", "name": "Request a quote", "target": SITE + "/#quote"},
+            {"@type": "CommunicateAction", "name": "Build a rewire quote", "target": SITE + "/rewire-quote-builder/"},
+        ],
+        "subjectOf": [{"@type": "WebApplication", "@id": SITE + "/rewire-quote-builder/#app"},
+                      {"@type": "WebApplication", "@id": SITE + "/do-i-need-a-rewire/#app"}],
     }
 
 
@@ -72,7 +85,7 @@ def faq_html(faq, heading="Frequently asked questions"):
     </section>"""
 
 
-NAV_LINKS = [("/#services", "Services"), ("/#work", "Our Work"), ("/builders-trades/", "Builders &amp; Trades"),
+NAV_LINKS = [("/#services", "Services"), ("/#work", "Our Work"), ("/rewire-quote-builder/", "Quote Builder"), ("/builders-trades/", "Builders &amp; Trades"),
              ("/#areas", "Areas"), ("/#quote", "Contact")]
 
 
@@ -115,6 +128,8 @@ def footer():
                     <ul class="space-y-2 text-gray-400 text-sm">{svc}</ul>
                 </div>
                 <div>
+                    <h2 class="font-bold text-amber-400 mb-4">Free tools</h2>
+                    <ul class="space-y-2 text-gray-400 text-sm mb-6"><li><a href="/rewire-quote-builder/" class="hover:text-amber-400">Rewire quote builder</a></li><li><a href="/do-i-need-a-rewire/" class="hover:text-amber-400">Do I need a rewire?</a></li></ul>
                     <h2 class="font-bold text-amber-400 mb-4">Areas</h2>
                     <p class="text-gray-400 text-sm leading-6">Cardiff, {", ".join(NEARBY_AREAS)}</p>
                 </div>
@@ -149,6 +164,9 @@ SCRIPT = """
             a.addEventListener('click', function () { var s = document.getElementById('q-customer'); if (s) s.value = a.dataset.customer; });
         });
         var f = document.getElementById('quote-form');
+        if (f) { try { var qs = new URLSearchParams(location.search);
+            if (qs.get('job')) Array.prototype.forEach.call(f.elements.job.options, function (o) { if (o.text === qs.get('job')) f.elements.job.value = o.value; });
+            if (qs.get('details')) f.elements.details.value = qs.get('details'); } catch (err) {} }
         if (f) f.addEventListener('submit', function (e) {
             e.preventDefault();
             var msg = document.getElementById('q-msg');
@@ -164,7 +182,7 @@ SCRIPT = """
     </script>""".replace("EMAIL", EMAIL).replace("PHONE", PHONE_DISPLAY)
 
 
-def page(path, title, description, body, schema_graph, og_image="/assets/og-image.jpg", preload=None):
+def page(path, title, description, body, schema_graph, og_image="/assets/og-image.jpg", preload=None, extra_script=""):
     url = SITE + path
     graph = {"@context": "https://schema.org", "@graph": schema_graph}
     pre = f'<link rel="preload" as="image" href="{preload}" fetchpriority="high">' if preload else ""
@@ -211,6 +229,7 @@ def page(path, title, description, body, schema_graph, og_image="/assets/og-imag
 </main>
 {footer()}
 {SCRIPT}
+{extra_script}
 </body>
 </html>
 """
@@ -378,7 +397,26 @@ def home():
         </div>
     </section>
 
-    <section id="who" class="py-20 bg-gray-50">
+    <section id="tools" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="/rewire-quote-builder/" class="card rounded-xl p-8 flex gap-5 items-start">
+                    <span class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-sliders text-white text-xl" aria-hidden="true"></i></span>
+                    <span><span class="block text-amber-600 font-semibold text-sm uppercase tracking-wide mb-1">Free tool</span><span class="block text-2xl font-bold text-gray-900 mb-2">Build your rewire quote</span>
+                    <span class="block text-gray-600">Choose sockets, lighting and extras room by room, and send it to us for a written quote. Takes two minutes.</span>
+                    <span class="inline-block mt-4 text-amber-700 font-bold">Start building <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span></span>
+                </a>
+                <a href="/do-i-need-a-rewire/" class="card rounded-xl p-8 flex gap-5 items-start">
+                    <span class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-list-check text-white text-xl" aria-hidden="true"></i></span>
+                    <span><span class="block text-amber-600 font-semibold text-sm uppercase tracking-wide mb-1">1-minute check</span><span class="block text-2xl font-bold text-gray-900 mb-2">Does my house need rewiring?</span>
+                    <span class="block text-gray-600">Answer seven quick questions about your fuse box, cables and sockets to see if your electrics are fine, due a check or likely need a rewire.</span>
+                    <span class="inline-block mt-4 text-amber-700 font-bold">Take the check <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="who" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14"><div class="accent-line mx-auto mb-6"></div>
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Who we work with</h2>
@@ -579,6 +617,42 @@ def service_page(s):
     return page(path, s["title"], s["description"], body, graph, preload="/" + s["image"])
 
 
+TOOLS = [
+    {"slug": "rewire-quote-builder", "name": "Rewire quote builder", "short": "Rewire quote builder",
+     "title": "Rewire Cost &amp; Quote Builder | Cardiff | Bailey Electrical",
+     "description": "Plan your rewire room by room – sockets, lighting, consumer unit and extras – and get a fixed written quote from a NICEIC registered Cardiff electrician. Free, takes 2 minutes.",
+     "lead": "Plan your rewire room by room and send it to Bailey Electrical for a fixed written quote.",
+     "body": tools.QB_BODY, "script": tools.QB_SCRIPT, "sections": tools.QB_SECTIONS, "faq": tools.QB_FAQ},
+    {"slug": "do-i-need-a-rewire", "name": "Do I need a rewire? checker", "short": "Do I need a rewire?",
+     "title": "Does My House Need Rewiring? Free 1-Minute Check | Bailey Electrical",
+     "description": "Answer seven quick questions about your fuse box, cables and sockets to find out if your house needs rewiring, an EICR, or is in good shape. From a Cardiff NICEIC electrician.",
+     "lead": "A free seven-question check that tells you whether your home's electrics are likely fine, due an inspection, or likely to need a rewire.",
+     "body": tools.RC_BODY, "script": tools.RC_SCRIPT, "sections": tools.RC_SECTIONS, "faq": tools.RC_FAQ},
+]
+
+
+def tool_page(t):
+    path = f"/{t['slug']}/"
+    url = SITE + path
+    sections = "\n".join(
+        f'<section class="mb-12"><h2 class="text-3xl font-bold text-gray-900 mb-4">{h}</h2><div class="prose-body">{b}</div></section>'
+        for h, b in t["sections"])
+    body = t["body"] + f"""
+    <div class="bg-white py-16"><div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"><article>{sections}</article></div></div>
+    {faq_html(t['faq'])}"""
+    graph = [
+        {"@type": "WebApplication", "@id": url + "#app", "name": t["name"], "url": url, "description": t["lead"],
+         "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": True,
+         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "provider": {"@id": BIZ_ID}},
+        {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": strip_tags(t["title"]), "isPartOf": {"@id": SITE + "/#website"},
+         "about": {"@id": url + "#app"}, "dateModified": TODAY, "inLanguage": "en-GB"},
+        crumbs_schema([("Home", "/"), (t["short"], path)]),
+        faq_schema(t["faq"], url),
+        {"@type": "Electrician", "@id": BIZ_ID, "name": NAME, "url": SITE + "/", "telephone": PHONE_INTL},
+    ]
+    return page(path, t["title"], t["description"], body, graph, extra_script=t["script"])
+
+
 def not_found():
     body = f"""
     <section class="py-24 bg-white text-center"><div class="max-w-xl mx-auto px-4">
@@ -620,6 +694,7 @@ def llms_txt():
     ]
     for s in SERVICES:
         lines.append(f"- [{strip_tags(s['h1'])}]({SITE}/{s['slug']}/): {strip_tags(s['lead'])}")
+    lines += ["", "## Free tools"] + [f"- [{t['name']}]({SITE}/{t['slug']}/): {t['lead']}" for t in TOOLS] + ["", "## Other services"]
     lines += ["- Lighting: downlights, LED upgrades, under-cabinet, plinth and mirror lighting, garden, patio and outdoor lighting",
               "- Also: fault finding and repairs, new circuits and additional sockets, small commercial work by arrangement", "",
               "## Frequently asked questions"]
@@ -630,7 +705,7 @@ def llms_txt():
 
 
 def sitemap():
-    urls = ["/"] + [f"/{s['slug']}/" for s in SERVICES]
+    urls = ["/"] + [f"/{s['slug']}/" for s in SERVICES] + [f"/{t['slug']}/" for t in TOOLS]
     items = "\n".join(
         f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><priority>{'1.0' if u == '/' else '0.8'}</priority></url>" for u in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{items}\n</urlset>\n'
@@ -648,6 +723,8 @@ if __name__ == "__main__":
     write("index.html", home())
     for s in SERVICES:
         write(f"{s['slug']}/index.html", service_page(s))
+    for t in TOOLS:
+        write(f"{t['slug']}/index.html", tool_page(t))
     write("404.html", not_found())
     write("llms.txt", llms_txt())
     write("sitemap.xml", sitemap())
