@@ -1,275 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bailey Electrical - Professional Electrical Services in Cardiff & South Wales</title>
+    <title>Bailey Electrical | Electrician in Cardiff – Rewires, Renovations &amp; Extensions</title>
+    <meta name="description" content="NICEIC registered electrician in Cardiff. Rewires, consumer unit upgrades, extension and renovation electrics, lighting, EICRs and landlord certificates. Trusted by local builders and homeowners.">
+    <link rel="canonical" href="https://bailey-electrical.co.uk/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bailey Electrical | Cardiff Electrician">
+    <meta property="og:description" content="Rewires, renovations, extensions and lighting across Cardiff. Clear written quotes, tidy work, certified on completion.">
+    <meta property="og:url" content="https://bailey-electrical.co.uk/">
+    <meta property="og:image" content="https://bailey-electrical.co.uk/work-3.jpeg">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Electrician",
+      "name": "Bailey Electrical",
+      "url": "https://bailey-electrical.co.uk/",
+      "logo": "https://bailey-electrical.co.uk/logo.svg",
+      "image": "https://bailey-electrical.co.uk/work-3.jpeg",
+      "telephone": "+447590275205",
+      "email": "baileyelectrical.mb@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Cardiff", "addressRegion": "Wales", "addressCountry": "GB" },
+      "areaServed": ["Cardiff", "Penarth", "Barry", "Caerphilly", "Pontypridd", "Llantrisant", "Cowbridge", "Newport", "Vale of Glamorgan"],
+      "sameAs": ["https://www.facebook.com/profile.php?id=61591179188922"]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            scroll-behavior: smooth;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-        
-        .accent-line {
-            height: 4px;
-            background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
-        }
-        
-        .service-card {
-            transition: all 0.3s ease;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-        
-        .service-icon {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #f59e0b;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-        }
-        
-        .testimonial-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-        
-        .section-title {
-            color: #0f172a;
-        }
-        
-        nav {
-            background: rgba(15, 23, 42, 0.95);
-            border-bottom: 1px solid rgba(249, 158, 11, 0.1);
-        }
-        
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-            color: #e2e8f0;
-        }
-        
-        .nav-link:hover {
-            color: #f59e0b;
-        }
-        
-        .feature-box {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-2px);
-            border-color: #f59e0b;
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.1);
-        }
-
-        /* Gallery */
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 16px;
-            background: #f1f5f9;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .accent-line { height: 4px; width: 64px; background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%); }
+        .cta-button { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); transition: all .25s ease; box-shadow: 0 4px 15px rgba(245,158,11,.3); }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,158,11,.4); }
+        .card { background: #fff; border: 1px solid #e2e8f0; transition: all .25s ease; }
+        .card:hover { border-color: #f59e0b; box-shadow: 0 10px 25px rgba(0,0,0,.06); }
+        .icon-tile { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        nav.site-nav { background: rgba(15,23,42,.96); border-bottom: 1px solid rgba(245,158,11,.15); }
+        .nav-link { color: #e2e8f0; transition: color .2s; }
+        .nav-link:hover { color: #f59e0b; }
+        .photo { overflow: hidden; background: #f1f5f9; }
+        .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+        .photo:hover img { transform: scale(1.04); }
+        .field { width: 100%; border: 1px solid #cbd5e1; border-radius: .5rem; padding: .7rem .9rem; background: #fff; }
+        .field:focus { outline: none; border-color: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,.2); }
+        @media (max-width: 767px) { body { padding-bottom: 64px; } }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-800">
+
     <!-- Navigation -->
-    <nav class="text-white shadow-lg sticky top-0 z-50">
+    <nav class="site-nav text-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <img src="logo.svg" alt="Bailey Electrical Logo" class="h-12 w-auto hover:scale-110 transition duration-300">
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#services" class="nav-link hover:text-amber-400 transition">Services</a>
-                    <a href="#portfolio" class="nav-link hover:text-amber-400 transition">Portfolio</a>
-                    <a href="#about" class="nav-link hover:text-amber-400 transition">About</a>
-                    <a href="#testimonials" class="nav-link hover:text-amber-400 transition">Reviews</a>
-                    <a href="#contact" class="nav-link hover:text-amber-400 transition">Contact</a>
-                </div>
-                <a href="mailto:baileyelectrical.mb@gmail.com?subject=Booking%20Request" class="cta-button text-white px-6 py-2 rounded-lg font-semibold inline-block">
-                    Book Now
+                <a href="#top" aria-label="Bailey Electrical home">
+                    <img src="logo.svg" alt="Bailey Electrical" class="h-11 w-auto">
                 </a>
+                <div class="hidden md:flex space-x-7 text-sm font-medium">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#work" class="nav-link">Our Work</a>
+                    <a href="#trade" class="nav-link">Builders &amp; Trades</a>
+                    <a href="#areas" class="nav-link">Areas</a>
+                    <a href="#quote" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="tel:07590275205" class="hidden lg:inline-flex items-center text-sm font-semibold text-amber-400 hover:text-amber-300">
+                        <i class="fas fa-phone mr-2"></i>07590 275205
+                    </a>
+                    <a href="#quote" class="cta-button text-white px-5 py-2 rounded-lg font-semibold text-sm">Get a Quote</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20">
+    <!-- Hero -->
+    <header id="top" class="hero-gradient text-white py-16 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="accent-line mb-6 w-16"></div>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                        Professional Electrical Services
+                    <div class="accent-line mb-6"></div>
+                    <p class="text-amber-400 font-semibold tracking-wide uppercase text-sm mb-3">Cardiff electrician</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Rewires, renovations &amp; extensions &mdash; done properly.
                     </h1>
-                    <p class="text-lg text-gray-300 mb-10 leading-relaxed max-w-lg">
-                        Trusted by hundreds of homes and businesses across Cardiff and South Wales. Expert electricians delivering quality, reliability, and customer care.
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
+                        Bailey Electrical is a local, independent electrical business working with homeowners, landlords and builders across Cardiff. Clear written quotes, tidy work, and certification on every job.
                     </p>
-                    <div class="flex gap-4 flex-wrap">
-                        <a href="mailto:baileyelectrical.mb@gmail.com?subject=Booking%20Request" class="cta-button text-white px-8 py-3 rounded-lg font-bold text-lg inline-block">
-                            Schedule Now
-                        </a>
+                    <div class="flex gap-4 flex-wrap mb-10">
+                        <a href="#quote" class="cta-button text-white px-8 py-3 rounded-lg font-bold text-lg">Request a Quote</a>
                         <a href="tel:07590275205" class="border-2 border-amber-400 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-400 hover:text-slate-900 transition">
-                            <i class="fas fa-phone mr-2"></i>Call
+                            <i class="fas fa-phone mr-2"></i>07590 275205
                         </a>
                     </div>
+                    <ul class="grid grid-cols-2 gap-3 text-sm text-gray-200 max-w-md">
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2"></i>NICEIC registered</li>
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2"></i>Fully insured</li>
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2"></i>Certified on completion</li>
+                        <li><i class="fas fa-circle-check text-amber-400 mr-2"></i>Trusted by local builders</li>
+                    </ul>
                 </div>
-                <div class="relative hidden md:block">
-                    <div class="bg-white rounded-lg overflow-hidden shadow-xl">
-                        <img src="work-1.jpeg" alt="Professional Electrician" class="w-full h-full object-cover">
+                <div class="hidden md:block">
+                    <div class="photo rounded-xl shadow-2xl aspect-[4/3]">
+                        <img src="work-3.jpeg" alt="Kitchen extension with recessed downlights and under-cabinet LED lighting">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Services Section -->
+    <!-- Services -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="accent-line mx-auto mb-6 w-16"></div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Our Services</h2>
-                <p class="text-gray-600 text-lg mt-4">Comprehensive electrical solutions for homes and businesses</p>
+            <div class="text-center mb-14">
+                <div class="accent-line mx-auto mb-6"></div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">What we do</h2>
+                <p class="text-gray-600 text-lg mt-4 max-w-2xl mx-auto">We specialise in jobs that need doing properly, from first fix to final certificate.</p>
             </div>
-            
+
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="service-card p-8 rounded-lg">
-                    <div class="service-icon w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-home text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Home Electrical</h3>
-                    <p class="text-gray-600 mb-5">Complete rewiring, socket installation, lighting design, and emergency repairs.</p>
+                <div class="card p-8 rounded-xl">
+                    <div class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center mb-5"><i class="fas fa-plug-circle-bolt text-white text-xl"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Rewires &amp; consumer units</h3>
+                    <p class="text-gray-600 mb-5">Full and partial rewires planned around you, and consumer unit upgrades that bring older homes up to current regulations.</p>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li>✓ Full house rewiring</li>
-                        <li>✓ Socket & switch installation</li>
-                        <li>✓ LED lighting upgrades</li>
-                        <li>✓ Bathroom & kitchen work</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>Full &amp; partial house rewires</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>Consumer unit replacements</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>New circuits &amp; additional sockets</li>
                     </ul>
                 </div>
-
-                <!-- Service Card 2 -->
-                <div class="service-card p-8 rounded-lg">
-                    <div class="service-icon w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-building text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Solutions</h3>
-                    <p class="text-gray-600 mb-5">Professional installation and maintenance for businesses of all sizes.</p>
+                <div class="card p-8 rounded-xl">
+                    <div class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center mb-5"><i class="fas fa-trowel-bricks text-white text-xl"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Extensions &amp; renovations</h3>
+                    <p class="text-gray-600 mb-5">Complete electrics for kitchens, bathrooms, extensions and refurbishments &mdash; working directly for you or alongside your builder.</p>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li>✓ Commercial wiring</li>
-                        <li>✓ Panel installation</li>
-                        <li>✓ Safety compliance</li>
-                        <li>✓ Emergency service</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>First &amp; second fix</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>Kitchens &amp; bathrooms</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>Certification &amp; Building Regs notification</li>
                     </ul>
                 </div>
-
-                <!-- Service Card 3 -->
-                <div class="service-card p-8 rounded-lg">
-                    <div class="service-icon w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-lightbulb text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Home & Modern</h3>
-                    <p class="text-gray-600 mb-5">Modern electrical upgrades including smart lighting and energy solutions.</p>
+                <div class="card p-8 rounded-xl">
+                    <div class="icon-tile w-14 h-14 rounded-lg flex items-center justify-center mb-5"><i class="fas fa-lightbulb text-white text-xl"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lighting, inside &amp; out</h3>
+                    <p class="text-gray-600 mb-5">Lighting that makes a room &mdash; downlights, LED strip and feature lighting, plus garden and patio lighting.</p>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li>✓ Smart lighting systems</li>
-                        <li>✓ EV charging installation</li>
-                        <li>✓ Solar integration</li>
-                        <li>✓ Energy audits</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>Downlights &amp; LED upgrades</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>Under-cabinet, plinth &amp; mirror lighting</li>
+                        <li><i class="fas fa-check text-amber-500 mr-2"></i>Garden, patio &amp; outdoor lighting</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="mt-10 rounded-xl bg-slate-50 border border-slate-200 p-6 md:p-8">
+                <h3 class="font-bold text-gray-900 mb-4">Also available</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-gray-700">
+                    <p><i class="fas fa-clipboard-check text-amber-500 mr-2"></i>EICRs &amp; electrical testing</p>
+                    <p><i class="fas fa-house-user text-amber-500 mr-2"></i>Landlord electrical certificates</p>
+                    <p><i class="fas fa-magnifying-glass text-amber-500 mr-2"></i>Fault finding &amp; repairs</p>
+                    <p><i class="fas fa-store text-amber-500 mr-2"></i>Small commercial, by arrangement</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Our Work -->
+    <section id="work" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <div class="accent-line mx-auto mb-6"></div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Recent projects</h2>
+                <p class="text-gray-600 text-lg mt-4">A few jobs we&rsquo;re proud of.</p>
+            </div>
+
+            <div class="space-y-10">
+                <!-- Project: Kitchen -->
+                <article class="card rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-5">
+                        <div class="md:col-span-3 h-80 md:h-[26rem] grid grid-cols-3 grid-rows-2 gap-1">
+                            <div class="photo col-span-2 row-span-2"><img src="work-4.jpeg" alt="Kitchen island with downlights and under-cabinet LED lighting" loading="lazy"></div>
+                            <div class="photo"><img src="work-6.jpeg" alt="Open-plan kitchen-diner with recessed downlights" loading="lazy"></div>
+                            <div class="photo"><img src="work-3.jpeg" alt="Kitchen with under-cabinet LED strip lighting" loading="lazy"></div>
+                        </div>
+                        <div class="md:col-span-2 p-8 flex flex-col justify-center">
+                            <p class="text-amber-600 font-semibold text-sm uppercase tracking-wide mb-2">Kitchen renovation</p>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Open-plan kitchen-diner</h3>
+                            <p class="text-gray-600">Full electrics for a new open-plan kitchen: recessed downlights, under-cabinet LED strip, and power for the island and appliances.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project: Bathroom -->
+                <article class="card rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-5">
+                        <div class="md:col-span-2 p-8 flex flex-col justify-center order-2 md:order-1">
+                            <p class="text-amber-600 font-semibold text-sm uppercase tracking-wide mb-2">Bathroom renovation</p>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Feature-lit bathroom</h3>
+                            <p class="text-gray-600">Backlit LED mirror, recessed shower lighting, LED plinth lighting and a heated towel rail &mdash; all installed to bathroom zone regulations.</p>
+                        </div>
+                        <div class="md:col-span-3 h-80 md:h-[26rem] grid grid-cols-3 grid-rows-2 gap-1 order-1 md:order-2">
+                            <div class="photo col-span-2 row-span-2"><img src="work-7.jpeg" alt="Bathroom with backlit LED mirror, shower downlight and plinth lighting" loading="lazy"></div>
+                            <div class="photo"><img src="work-11.jpeg" alt="Backlit LED bathroom mirror" loading="lazy"></div>
+                            <div class="photo"><img src="work-10.jpeg" alt="Walk-in shower with recessed lighting and heated towel rail" loading="lazy"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project: Garden -->
+                <article class="card rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-5">
+                        <div class="md:col-span-3 grid grid-cols-2 gap-1">
+                            <div class="photo h-56 md:h-72"><img src="work-1.jpeg" alt="Patio with lit steps, wall lights and uplit trees at night" loading="lazy"></div>
+                            <div class="photo h-56 md:h-72"><img src="work-5.jpeg" alt="Garden with lawn spike lights and uplighting at night" loading="lazy"></div>
+                        </div>
+                        <div class="md:col-span-2 p-8 flex flex-col justify-center">
+                            <p class="text-amber-600 font-semibold text-sm uppercase tracking-wide mb-2">Outdoor lighting</p>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Garden &amp; patio lighting</h3>
+                            <p class="text-gray-600">Step lights, fence and wall lighting, and tree uplighting to make the garden usable after dark.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Builders & Trades -->
+    <section id="trade" class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="accent-line mb-6"></div>
+                    <p class="text-amber-400 font-semibold tracking-wide uppercase text-sm mb-3">For builders &amp; trades</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">An electrician you can put on your jobs.</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        We work with builders, kitchen and bathroom fitters and other trades across Cardiff. We turn up when we say, work around your programme, and leave the paperwork sorted.
+                    </p>
+                    <a href="#quote" data-customer="Builder / trade" class="trade-cta cta-button inline-block text-white px-8 py-3 rounded-lg font-bold text-lg">Talk to us about your next job</a>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-5">
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+                        <i class="fas fa-calendar-check text-amber-400 text-2xl mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Reliable &amp; on time</h3>
+                        <p class="text-gray-300 text-sm">First and second fix booked in around your schedule &mdash; no holding up the plasterer.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+                        <i class="fas fa-file-signature text-amber-400 text-2xl mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Certificates handled</h3>
+                        <p class="text-gray-300 text-sm">Electrical installation certificates and Building Regs notification done for you.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+                        <i class="fas fa-people-group text-amber-400 text-2xl mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Easy to work with</h3>
+                        <p class="text-gray-300 text-sm">Clear communication with you and your client, and a tidy site when we leave.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+                        <i class="fas fa-shield-halved text-amber-400 text-2xl mb-3"></i>
+                        <h3 class="font-bold text-lg mb-1">Registered &amp; insured</h3>
+                        <p class="text-gray-300 text-sm">NICEIC registered with full public liability insurance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How we work -->
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="work-2.jpeg" alt="Expert Team" class="rounded-lg shadow-lg w-full">
+                <div class="photo rounded-xl shadow-lg aspect-[4/3]">
+                    <img src="work-2.jpeg" alt="Bailey Electrical – finished kitchen with downlights" loading="lazy">
                 </div>
                 <div>
-                    <div class="accent-line mb-6 w-16"></div>
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose Bailey Electrical?</h2>
+                    <div class="accent-line mb-6"></div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">How we work</h2>
                     <p class="text-gray-700 text-lg mb-8 leading-relaxed">
-                        With over 15 years of experience serving Cardiff and South Wales, Bailey Electrical has built a reputation for excellence, reliability, and customer satisfaction.
+                        Bailey Electrical is a local, independent business. When you get in touch, you deal directly with the electrician doing the work &mdash; from the first visit to the final certificate.
                     </p>
-                    
                     <div class="space-y-4">
-                        <div class="feature-box p-5 rounded-lg">
-                            <div class="flex items-start gap-4">
-                                <div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-certificate text-amber-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Fully Qualified & Insured</h4>
-                                    <p class="text-gray-600 text-sm">All work carried out by certified electricians with full public liability insurance</p>
-                                </div>
-                            </div>
+                        <div class="flex gap-4">
+                            <div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-file-invoice text-amber-600"></i></div>
+                            <div><h3 class="font-bold text-gray-900">Clear written quotes</h3><p class="text-gray-600 text-sm">A proper scope of work and a fixed price before we start, so there are no surprises.</p></div>
                         </div>
-                        <div class="feature-box p-5 rounded-lg">
-                            <div class="flex items-start gap-4">
-                                <div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-clock text-amber-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">24/7 Emergency Service</h4>
-                                    <p class="text-gray-600 text-sm">Emergency callouts available around the clock for urgent issues</p>
-                                </div>
-                            </div>
+                        <div class="flex gap-4">
+                            <div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-broom text-amber-600"></i></div>
+                            <div><h3 class="font-bold text-gray-900">Respect for your home</h3><p class="text-gray-600 text-sm">Dust sheets down, mess cleared up, and work planned so you can keep living in the house.</p></div>
                         </div>
-                        <div class="feature-box p-5 rounded-lg">
-                            <div class="flex items-start gap-4">
-                                <div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-pound-sign text-amber-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Competitive Pricing</h4>
-                                    <p class="text-gray-600 text-sm">Free no-obligation quotes with transparent pricing, no hidden costs</p>
-                                </div>
-                            </div>
+                        <div class="flex gap-4">
+                            <div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-comments text-amber-600"></i></div>
+                            <div><h3 class="font-bold text-gray-900">Straight communication</h3><p class="text-gray-600 text-sm">You&rsquo;ll know when we&rsquo;re coming, what we&rsquo;re doing, and what it costs.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-amber-100 rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0"><i class="fas fa-certificate text-amber-600"></i></div>
+                            <div><h3 class="font-bold text-gray-900">Certified &amp; insured</h3><p class="text-gray-600 text-sm">NICEIC registered, fully insured, and every job certified on completion.</p></div>
                         </div>
                     </div>
                 </div>
@@ -277,238 +301,128 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="accent-line mx-auto mb-6 w-16"></div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Customer Testimonials</h2>
-                <p class="text-gray-600 text-lg mt-4">Trusted by hundreds of satisfied customers</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card p-8 rounded-lg">
-                    <div class="flex items-center mb-3">
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                    </div>
-                    <p class="text-gray-700 mb-5 leading-relaxed italic">"Bailey Electrical completely rewired our 1950s home. The team was professional, clean, and finished ahead of schedule."</p>
-                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
-                        <div class="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user text-white"></i>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900 text-sm">Sarah Williams</p>
-                            <p class="text-xs text-gray-600">Cardiff Homeowner</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card p-8 rounded-lg">
-                    <div class="flex items-center mb-3">
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                    </div>
-                    <p class="text-gray-700 mb-5 leading-relaxed italic">"Emergency with our restaurant's electrical system. Bailey arrived within 2 hours and had everything running smoothly again."</p>
-                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
-                        <div class="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user text-white"></i>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900 text-sm">Marcus Thompson</p>
-                            <p class="text-xs text-gray-600">Restaurant Owner</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card p-8 rounded-lg">
-                    <div class="flex items-center mb-3">
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                        <i class="fas fa-star text-amber-400"></i>
-                    </div>
-                    <p class="text-gray-700 mb-5 leading-relaxed italic">"The smart lighting installation was incredible. Bailey made the entire process stress-free and explained everything thoroughly."</p>
-                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
-                        <div class="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center">
-                            <i class="fas fa-user text-white"></i>
-                        </div>
-                        <div>
-                            <p class="font-bold text-gray-900 text-sm">Emma Davies</p>
-                            <p class="text-xs text-gray-600">Penarth Resident</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Google Reviews CTA -->
-            <div class="mt-12 bg-amber-50 rounded-lg p-8 text-center border border-amber-200">
-                <div class="flex items-center justify-center mb-3">
-                    <i class="fab fa-google text-2xl text-amber-600 mr-2"></i>
-                    <h3 class="text-2xl font-bold text-gray-900">See All Reviews on Google</h3>
-                </div>
-                <a href="https://www.google.com/search?q=Bailey+Electrical&oq=bailey+electrical&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgYIBhBFGDwyBggHEEUYPdIBCDI2MjdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0x486e1ba48399cf3d:0x8edc32f0ba05911f,1,,,,," target="_blank" rel="noopener noreferrer" class="inline-block text-amber-600 hover:text-amber-700 font-bold">
-                    ⭐ Read All Reviews
+    <!-- Reviews -->
+    <section id="reviews" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="accent-line mx-auto mb-6"></div>
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">What our customers say</h2>
+            <p class="text-gray-600 text-lg mb-8">Most of our work comes from recommendations. Read what customers have said about us on Google.</p>
+            <!--
+              To feature real reviews here, copy them word-for-word from Google (with the
+              customer's first name as shown there) into cards like this:
+              <blockquote class="card rounded-xl p-6 text-left">"Review text" — Name, Google review</blockquote>
+            -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://www.google.com/search?q=Bailey+Electrical#lrd=0x486e1ba48399cf3d:0x8edc32f0ba05911f,1,,,,," target="_blank" rel="noopener noreferrer" class="cta-button text-white px-7 py-3 rounded-lg font-bold">
+                    <i class="fab fa-google mr-2"></i>Read our Google reviews
+                </a>
+                <a href="https://www.google.com/search?q=Bailey+Electrical#lrd=0x486e1ba48399cf3d:0x8edc32f0ba05911f,3,,,,," target="_blank" rel="noopener noreferrer" class="border-2 border-amber-500 text-amber-700 px-7 py-3 rounded-lg font-bold hover:bg-amber-500 hover:text-white transition">
+                    <i class="fas fa-star mr-2"></i>Leave a review
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Gallery Section -->
-    <section id="portfolio" class="py-20 bg-gray-50">
+    <!-- Areas -->
+    <section id="areas" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="accent-line mx-auto mb-6 w-16"></div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Our Work</h2>
-                <p class="text-gray-600 text-lg mt-4">View our completed projects and installations</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-3.jpeg" alt="Electrical Installation">
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div>
+                    <div class="accent-line mb-6"></div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Areas we cover</h2>
+                    <p class="text-gray-600 leading-relaxed">Based in Cardiff, covering the city and roughly 20 miles around it. For larger projects &mdash; rewires, extensions and renovations &mdash; we&rsquo;re happy to travel further.</p>
                 </div>
-
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-4.jpeg" alt="Professional Team">
-                </div>
-
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-5.jpeg" alt="Modern Lighting">
-                </div>
-
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-6.jpeg" alt="Home Installation">
-                </div>
-
-                <!-- Gallery Item 5 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-7.jpeg" alt="Smart Home">
-                </div>
-
-                <!-- Gallery Item 6 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-8.jpeg" alt="Modern Interior">
-                </div>
-
-                <!-- Gallery Item 7 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-9.jpeg" alt="Electrical Work">
-                </div>
-
-                <!-- Gallery Item 8 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-10.jpeg" alt="Professional Service">
-                </div>
-
-                <!-- Gallery Item 9 -->
-                <div class="gallery-item h-72 rounded-lg shadow-lg">
-                    <img src="work-11.jpeg" alt="Installation">
+                <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+                    <div class="rounded-xl border border-slate-200 p-6">
+                        <h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-location-dot text-amber-500 mr-2"></i>Cardiff</h3>
+                        <p class="text-gray-600 text-sm leading-7">Canton, Pontcanna, Llandaff, Whitchurch, Rhiwbina, Heath, Cyncoed, Roath, Penylan, Llanishen, Lisvane, Pontprennau, Radyr, Danescourt, Fairwater, Ely, Grangetown, Cardiff Bay</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 p-6">
+                        <h3 class="font-bold text-gray-900 mb-3"><i class="fas fa-location-dot text-amber-500 mr-2"></i>Surrounding areas</h3>
+                        <p class="text-gray-600 text-sm leading-7">Penarth, Dinas Powys, Barry, Sully, Vale of Glamorgan, Cowbridge, Llantrisant, Pontyclun, Pontypridd, Caerphilly, Newport</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="hero-gradient text-white py-16">
+    <!-- Quote form -->
+    <section id="quote" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="stat-number mb-2">500+</div>
-                    <p class="text-gray-300">Satisfied Customers</p>
-                </div>
-                <div>
-                    <div class="stat-number mb-2">15+</div>
-                    <p class="text-gray-300">Years Experience</p>
-                </div>
-                <div>
-                    <div class="stat-number mb-2">24/7</div>
-                    <p class="text-gray-300">Emergency Available</p>
-                </div>
-                <div>
-                    <div class="stat-number mb-2">100%</div>
-                    <p class="text-gray-300">Certified & Insured</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="accent-line mx-auto mb-6 w-16"></div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Ready to Get Started?</h2>
-                <p class="text-gray-600 text-lg mt-4">Contact us today for a free consultation</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <!-- Contact Card 1 -->
-                <div class="feature-box p-8 rounded-lg text-center">
-                    <div class="bg-amber-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-phone text-amber-600 text-2xl"></i>
+            <div class="grid lg:grid-cols-5 gap-10">
+                <div class="lg:col-span-2">
+                    <div class="accent-line mb-6"></div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Request a quote</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">Tell us a bit about the job and where it is, and we&rsquo;ll get back to you. Photos help &mdash; you can attach them to the email this form creates.</p>
+                    <div class="space-y-4">
+                        <a href="tel:07590275205" class="flex items-center gap-4 card rounded-xl p-5">
+                            <span class="bg-amber-100 w-12 h-12 rounded-lg flex items-center justify-center"><i class="fas fa-phone text-amber-600"></i></span>
+                            <span><span class="block text-sm text-gray-500">Call</span><span class="font-bold text-gray-900">07590 275205</span></span>
+                        </a>
+                        <a href="mailto:baileyelectrical.mb@gmail.com" class="flex items-center gap-4 card rounded-xl p-5">
+                            <span class="bg-amber-100 w-12 h-12 rounded-lg flex items-center justify-center"><i class="fas fa-envelope text-amber-600"></i></span>
+                            <span class="min-w-0"><span class="block text-sm text-gray-500">Email</span><span class="font-bold text-gray-900 break-all">baileyelectrical.mb@gmail.com</span></span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61591179188922" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 card rounded-xl p-5">
+                            <span class="bg-amber-100 w-12 h-12 rounded-lg flex items-center justify-center"><i class="fab fa-facebook-f text-amber-600"></i></span>
+                            <span><span class="block text-sm text-gray-500">Facebook</span><span class="font-bold text-gray-900">Bailey Electrical</span></span>
+                        </a>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Phone</h3>
-                    <a href="tel:07590275205" class="text-amber-600 hover:text-amber-700 font-bold">07590 275205</a>
                 </div>
 
-                <!-- Contact Card 2 -->
-                <div class="feature-box p-8 rounded-lg text-center">
-                    <div class="bg-amber-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-envelope text-amber-600 text-2xl"></i>
+                <form id="quote-form" class="lg:col-span-3 card rounded-xl p-6 md:p-8 grid sm:grid-cols-2 gap-5" novalidate>
+                    <div>
+                        <label for="q-name" class="block text-sm font-semibold mb-1">Name *</label>
+                        <input id="q-name" name="name" class="field" required autocomplete="name">
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Email</h3>
-                    <a href="mailto:baileyelectrical.mb@gmail.com" class="text-amber-600 hover:text-amber-700 font-bold">baileyelectrical.mb@gmail.com</a>
-                </div>
-
-                <!-- Contact Card 3 -->
-                <div class="feature-box p-8 rounded-lg text-center">
-                    <div class="bg-amber-100 w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-map-marker-alt text-amber-600 text-2xl"></i>
+                    <div>
+                        <label for="q-phone" class="block text-sm font-semibold mb-1">Phone *</label>
+                        <input id="q-phone" name="phone" type="tel" class="field" required autocomplete="tel">
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Location</h3>
-                    <p class="text-gray-700 font-bold">Cardiff & South Wales</p>
-                </div>
-            </div>
-
-            <div class="text-center mb-12">
-                <a href="mailto:baileyelectrical.mb@gmail.com?subject=Free%20Consultation%20Request" class="cta-button text-white px-10 py-3 rounded-lg font-bold text-lg inline-block">
-                    Schedule Free Consultation
-                </a>
-            </div>
-
-            <!-- Social Links -->
-            <div class="flex justify-center gap-6 pt-8 border-t border-gray-200">
-                <a href="https://www.facebook.com/profile.php?id=61591179188922" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-white transition">
-                    <i class="fab fa-facebook text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-white transition">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-white transition">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-            </div>
-
-            <!-- Leave a Review -->
-            <div class="mt-12 bg-blue-50 rounded-lg p-6 text-center border border-blue-200">
-                <p class="text-gray-700 mb-4 font-semibold"><i class="fas fa-star text-blue-600 mr-2"></i>Had a great experience? Leave us a review on Google!</p>
-                <a href="https://www.google.com/search?q=Bailey+Electrical&oq=bailey+electrical&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgYIBhBFGDwyBggHEEUYPdIBCDI2MjdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0x486e1ba48399cf3d:0x8edc32f0ba05911f,1,,,,," target="_blank" rel="noopener noreferrer" class="inline-block text-blue-600 hover:text-blue-700 font-bold">
-                    ⭐ Leave a Review
-                </a>
+                    <div>
+                        <label for="q-customer" class="block text-sm font-semibold mb-1">I am a&hellip;</label>
+                        <select id="q-customer" name="customer" class="field">
+                            <option>Homeowner</option>
+                            <option>Landlord / letting agent</option>
+                            <option>Builder / trade</option>
+                            <option>Business</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="q-job" class="block text-sm font-semibold mb-1">Type of work</label>
+                        <select id="q-job" name="job" class="field">
+                            <option>Rewire (full or partial)</option>
+                            <option>Consumer unit upgrade</option>
+                            <option>Extension / renovation</option>
+                            <option>Kitchen or bathroom</option>
+                            <option>Lighting (indoor or outdoor)</option>
+                            <option>EICR / landlord certificate</option>
+                            <option>Fault finding / repair</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="q-postcode" class="block text-sm font-semibold mb-1">Job postcode *</label>
+                        <input id="q-postcode" name="postcode" class="field" required autocomplete="postal-code" placeholder="e.g. CF14">
+                    </div>
+                    <div>
+                        <label for="q-when" class="block text-sm font-semibold mb-1">When do you need it?</label>
+                        <select id="q-when" name="when" class="field">
+                            <option>Within a month</option>
+                            <option>1&ndash;3 months</option>
+                            <option>3+ months / planning stage</option>
+                            <option>Just getting prices</option>
+                        </select>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="q-details" class="block text-sm font-semibold mb-1">About the job *</label>
+                        <textarea id="q-details" name="details" rows="5" class="field" required placeholder="e.g. 3-bed semi, full rewire and new consumer unit. Kitchen being refitted in the spring."></textarea>
+                    </div>
+                    <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-4">
+                        <button type="submit" class="cta-button text-white px-8 py-3 rounded-lg font-bold text-lg">Send enquiry</button>
+                        <p id="q-msg" class="text-sm text-gray-500" role="status">This opens your email app with the details filled in.</p>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -516,37 +430,79 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-8 pb-8 border-b border-slate-700">
+            <div class="grid md:grid-cols-3 gap-8 pb-8 border-b border-slate-700">
                 <div>
-                    <img src="logo.svg" alt="Bailey Electrical Logo" class="h-12 w-auto mb-4">
-                    <p class="text-gray-400 leading-relaxed">Professional electrical services for Cardiff and South Wales since 2009. Trusted by 500+ satisfied customers.</p>
+                    <img src="logo.svg" alt="Bailey Electrical" class="h-12 w-auto mb-4">
+                    <p class="text-gray-400 leading-relaxed text-sm">Local, independent electrician in Cardiff. Rewires, renovations, extensions, lighting and testing.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold text-amber-400 mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#services" class="hover:text-amber-400 transition">Services</a></li>
-                        <li><a href="#portfolio" class="hover:text-amber-400 transition">Portfolio</a></li>
-                        <li><a href="#about" class="hover:text-amber-400 transition">About</a></li>
-                        <li><a href="#contact" class="hover:text-amber-400 transition">Contact</a></li>
+                    <h4 class="font-bold text-amber-400 mb-4">Quick links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#services" class="hover:text-amber-400">Services</a></li>
+                        <li><a href="#work" class="hover:text-amber-400">Recent projects</a></li>
+                        <li><a href="#trade" class="hover:text-amber-400">Builders &amp; trades</a></li>
+                        <li><a href="#areas" class="hover:text-amber-400">Areas we cover</a></li>
+                        <li><a href="#quote" class="hover:text-amber-400">Request a quote</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-amber-400 mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="tel:07590275205" class="hover:text-amber-400"><i class="fas fa-phone mr-2"></i>07590 275205</a></li>
+                        <li><a href="mailto:baileyelectrical.mb@gmail.com" class="hover:text-amber-400 break-all"><i class="fas fa-envelope mr-2"></i>baileyelectrical.mb@gmail.com</a></li>
+                        <li><i class="fas fa-location-dot mr-2"></i>Cardiff &amp; surrounding areas</li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Bailey Electrical. All rights reserved. | License: NICEIC Registered</p>
+            <div class="pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; <span id="year">2026</span> Bailey Electrical. NICEIC Registered.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Mobile action bar -->
+    <div class="md:hidden fixed bottom-0 inset-x-0 z-50 grid grid-cols-2 bg-slate-900 border-t border-slate-700">
+        <a href="tel:07590275205" class="flex items-center justify-center gap-2 py-4 text-white font-bold"><i class="fas fa-phone text-amber-400"></i>Call</a>
+        <a href="#quote" class="flex items-center justify-center gap-2 py-4 font-bold text-white cta-button" style="box-shadow:none"><i class="fas fa-file-pen"></i>Get a quote</a>
+    </div>
+
     <script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Pre-select "Builder / trade" when coming from the trade section
+        document.querySelectorAll('.trade-cta').forEach(function (a) {
+            a.addEventListener('click', function () {
+                document.getElementById('q-customer').value = a.dataset.customer;
             });
+        });
+
+        // Quote form: builds a pre-filled email (no server needed on GitHub Pages)
+        document.getElementById('quote-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var f = e.target, msg = document.getElementById('q-msg');
+            var missing = Array.prototype.filter.call(f.querySelectorAll('[required]'), function (el) { return !el.value.trim(); });
+            if (missing.length) {
+                msg.textContent = 'Please fill in the fields marked *.';
+                msg.className = 'text-sm text-red-600';
+                missing[0].focus();
+                return;
+            }
+            var v = function (n) { return f.elements[n].value.trim(); };
+            var subject = 'Quote request: ' + v('job') + ' – ' + v('postcode').toUpperCase();
+            var body = [
+                'Name: ' + v('name'),
+                'Phone: ' + v('phone'),
+                'I am a: ' + v('customer'),
+                'Type of work: ' + v('job'),
+                'Postcode: ' + v('postcode').toUpperCase(),
+                'Timescale: ' + v('when'),
+                '',
+                'About the job:',
+                v('details')
+            ].join('\n');
+            window.location.href = 'mailto:baileyelectrical.mb@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            msg.textContent = 'Your email app should open now. If it doesn’t, call us on 07590 275205.';
+            msg.className = 'text-sm text-gray-600';
         });
     </script>
 </body>
