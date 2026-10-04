@@ -23,6 +23,8 @@
     ['outsocket', 'Outdoor socket', 'Weatherproof socket for the garden', 'fa-plug-circle-check'],
     ['office', 'Garden office / outbuilding supply', 'New supply to a garden room or garage', 'fa-warehouse']
   ];
+  // Sockets aren't allowed in rooms with a bath or shower
+  function noSockets(r) { return /^(Bathroom|En-suite)/.test(r.n); }
   var STEPS = ['Property', 'Scope', 'Rooms', 'Extras', 'Your details'];
   var step = 0;
 
@@ -84,6 +86,8 @@
       row('Double sockets', sockets);
       var dl = S.rooms.filter(function (r) { return r.l > 0; }).length;
       if (dl) row('Rooms with downlights', dl);
+      var wl = S.rooms.filter(function (r) { return r.w; }).length;
+      if (wl) row('Rooms with wall lights', wl);
     }
     var ex = EXTRAS.filter(function (e) { return S.extras[e[0]]; }).map(function (e) { return e[1]; });
     if (ex.length) out.push('<div><span class="text-gray-500 block mb-1">Extras</span><ul class="space-y-1">' + ex.map(function (x) { return '<li><i class="fas fa-check text-amber-500 mr-2" aria-hidden="true"></i>' + esc(x) + '</li>'; }).join('') + '</ul></div>');
@@ -118,12 +122,16 @@
       h += '<div class="space-y-3">' + S.rooms.map(function (r, i) {
         return '<div class="rounded-xl border border-slate-200 p-4 grid sm:grid-cols-12 gap-3 items-center">' +
           '<div class="sm:col-span-4 font-bold text-gray-900">' + esc(r.n) + (i >= 0 ? ' <button type="button" data-remove="' + i + '" class="ml-2 text-xs font-normal text-gray-400 hover:text-red-600" aria-label="Remove ' + esc(r.n) + '">remove</button>' : '') + '</div>' +
-          '<div class="sm:col-span-4 flex items-center gap-2"><span class="text-sm text-gray-500 w-16">Sockets</span>' +
-          '<button type="button" data-dec="' + i + '" class="w-9 h-9 rounded-lg border border-slate-300 font-bold hover:bg-slate-100" aria-label="Fewer sockets in ' + esc(r.n) + '">&minus;</button>' +
-          '<span class="w-8 text-center font-bold" aria-live="polite">' + r.s + '</span>' +
-          '<button type="button" data-inc="' + i + '" class="w-9 h-9 rounded-lg border border-slate-300 font-bold hover:bg-slate-100" aria-label="More sockets in ' + esc(r.n) + '">+</button></div>' +
+          (noSockets(r)
+            ? '<div class="sm:col-span-4 text-sm text-gray-500"><i class="fas fa-ban text-slate-400 mr-2" aria-hidden="true"></i>No sockets &ndash; not allowed in bathrooms</div>'
+            : '<div class="sm:col-span-4 flex items-center gap-2"><span class="text-sm text-gray-500 w-16">Sockets</span>' +
+              '<button type="button" data-dec="' + i + '" class="w-9 h-9 rounded-lg border border-slate-300 font-bold hover:bg-slate-100" aria-label="Fewer sockets in ' + esc(r.n) + '">&minus;</button>' +
+              '<span class="w-8 text-center font-bold" aria-live="polite">' + r.s + '</span>' +
+              '<button type="button" data-inc="' + i + '" class="w-9 h-9 rounded-lg border border-slate-300 font-bold hover:bg-slate-100" aria-label="More sockets in ' + esc(r.n) + '">+</button></div>') +
           '<div class="sm:col-span-4"><label class="sr-only" for="light-' + i + '">Lighting in ' + esc(r.n) + '</label><select id="light-' + i + '" data-light="' + i + '" class="field">' +
-          LIGHTS.map(function (l, j) { return '<option value="' + j + '"' + (r.l === j ? ' selected' : '') + '>' + l + '</option>'; }).join('') + '</select></div></div>';
+          LIGHTS.map(function (l, j) { return '<option value="' + j + '"' + (r.l === j ? ' selected' : '') + '>' + l + '</option>'; }).join('') + '</select>' +
+          (noSockets(r) ? '' : '<label class="mt-2 flex items-center gap-2 text-sm text-gray-700 cursor-pointer"><input type="checkbox" data-wall="' + i + '" class="w-4 h-4 accent-amber-500"' + (r.w ? ' checked' : '') + '>Add wall lights (extra)</label>') +
+          '</div></div>';
       }).join('') + '</div>';
       h += '<div class="mt-4 flex flex-wrap gap-2 items-center"><span class="text-sm text-gray-500 mr-2">Add a room:</span>' +
         ['Utility room', 'Study / office', 'Conservatory', 'Loft', 'Garage', 'WC / cloakroom', 'En-suite'].map(function (n) { return '<button type="button" data-add="' + n + '" class="text-sm rounded-full border border-slate-300 px-3 py-1 hover:border-amber-400 hover:bg-amber-50">+ ' + n + '</button>'; }).join('') + '</div>';
@@ -165,7 +173,7 @@
     L.push('Scope: ' + S.scope + (S.scope === 'Partial rewire' ? ' (' + Object.keys(S.partial).filter(function (k) { return S.partial[k]; }).join(', ') + ')' : ''));
     L.push('During work: ' + S.occupancy, '');
     L.push('ROOMS (double sockets / lighting)');
-    S.rooms.forEach(function (r) { L.push('- ' + r.n + ': ' + r.s + ' sockets, ' + LIGHTS[r.l]); });
+    S.rooms.forEach(function (r) { L.push('- ' + r.n + ': ' + (noSockets(r) ? 'no sockets' : r.s + ' sockets') + ', ' + LIGHTS[r.l] + (r.w ? ' + wall lights' : '')); });
     L.push('Total double sockets: ' + S.rooms.reduce(function (a, r) { return a + r.s; }, 0), '');
     var ex = EXTRAS.filter(function (e) { return S.extras[e[0]]; }).map(function (e) { return e[1]; });
     L.push('EXTRAS: ' + (ex.length ? ex.join(', ') : 'none'));
@@ -178,7 +186,7 @@
   function estimate() {
     if (!PR.enabled || !S.type || !S.rooms.length) return null;
     var t = (PR.base[S.type] || 0) + S.rooms.length * (PR.perRoom || 0);
-    S.rooms.forEach(function (r) { t += r.s * (PR.perSocket || 0) + (PR.lighting[LIGHTS[r.l]] || 0); });
+    S.rooms.forEach(function (r) { t += r.s * (PR.perSocket || 0) + (PR.lighting[LIGHTS[r.l]] || 0) + (r.w ? PR.perRoomWallLights || 0 : 0); });
     EXTRAS.forEach(function (e) { if (S.extras[e[0]]) t += PR.extras[e[0]] || 0; });
     if (S.occupancy === OCC[0]) t *= 1 + (PR.occupiedUplift || 0);
     if (S.scope === 'Not sure yet' || t <= 0) return null;
@@ -197,8 +205,9 @@
     P.querySelectorAll('[data-inc]').forEach(function (b) { b.onclick = function () { S.rooms[+b.dataset.inc].s = Math.min(20, S.rooms[+b.dataset.inc].s + 1); render(); }; });
     P.querySelectorAll('[data-dec]').forEach(function (b) { b.onclick = function () { S.rooms[+b.dataset.dec].s = Math.max(0, S.rooms[+b.dataset.dec].s - 1); render(); }; });
     P.querySelectorAll('[data-light]').forEach(function (s) { s.onchange = function () { S.rooms[+s.dataset.light].l = +s.value; renderSummary(); }; });
+    P.querySelectorAll('[data-wall]').forEach(function (c) { c.onchange = function () { S.rooms[+c.dataset.wall].w = c.checked; renderSummary(); }; });
     P.querySelectorAll('[data-remove]').forEach(function (b) { b.onclick = function () { S.rooms.splice(+b.dataset.remove, 1); render(); }; });
-    P.querySelectorAll('[data-add]').forEach(function (b) { b.onclick = function () { S.rooms.push({ n: b.dataset.add, s: 3, l: 0 }); render(); }; });
+    P.querySelectorAll('[data-add]').forEach(function (b) { b.onclick = function () { var r = { n: b.dataset.add, s: 3, l: 0 }; if (noSockets(r)) r.s = 0; S.rooms.push(r); render(); }; });
     P.querySelectorAll('[data-extra]').forEach(function (b) { b.onclick = function () { S.extras[b.dataset.extra] = !S.extras[b.dataset.extra]; render(); }; });
     P.querySelectorAll('[data-f]').forEach(function (i) { i.oninput = i.onchange = function () { S[i.dataset.f] = i.value; }; });
     var pcIn = P.querySelector('#qb-postcode');
