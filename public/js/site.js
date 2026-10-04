@@ -62,7 +62,7 @@
       window.location.href = 'mailto:' + C.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyText);
       return Promise.resolve({ ok: true, via: 'email' });
     }
-    if (!C.web3formsKey) return mailto();
+    if (!C.web3formsKey) { BE.track('generate_lead', { form: subject.split(':')[0], via: 'email' }); return mailto(); }
     var payload = Object.assign({ access_key: C.web3formsKey, subject: subject, from_name: 'Bailey Electrical website', message: bodyText, botcheck: '' }, fields || {});
     return fetch('https://api.web3forms.com/submit', {
       method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload)
@@ -71,7 +71,16 @@
       return mailto();
     }).catch(mailto);
   };
-  BE.track = function (name, params) { try { if (window.gtag) window.gtag('event', name, params || {}); } catch (e) {} };
+  BE.track = function (name, params) {
+    try { if (window.gtag) window.gtag('event', name, params || {}); } catch (e) {}
+    try { if (window.posthog) window.posthog.capture(name, params || {}); } catch (e) {}
+  };
+
+  // Phone and email taps are leads too
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+    if (a) BE.track(a.href.indexOf('tel:') === 0 ? 'phone_click' : 'email_click', { page: location.pathname });
+  });
 
   // ---- Generic enquiry forms (class="enquiry-form") ------------------------------
   document.querySelectorAll('form.enquiry-form').forEach(function (f) {

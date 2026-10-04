@@ -71,5 +71,19 @@ const beConfig = {
   <Footer />
   <script is:inline src="/js/site.js" defer></script>
   <slot name="scripts" />
+  <script>
+    import posthog from 'posthog-js';
+    import config from '../data/config.json';
+
+    // Cookieless: nothing is stored on the visitor's device, so no consent banner is needed.
+    if (config.posthogKey && !location.hostname.match(/^(localhost|127\.0\.0\.1)$/)) {
+      posthog.init(config.posthogKey, {
+        api_host: 'https://eu.i.posthog.com',
+        persistence: 'memory',
+        person_profiles: 'identified_only',
+      });
+      (window as any).posthog = posthog;
+    }
+  </script>
 </body>
 </html>
