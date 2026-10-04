@@ -1,8 +1,6 @@
 {
-  "_readme": "Site settings. web3formsKey: free access key from https://web3forms.com (sign up with Mark's email). Leave empty to fall back to opening the visitor's email app. posthogKey: PostHog project token (EU cloud); safe to publish, the browser sees it anyway.",
-  "web3formsKey": "",
+  "_readme": "Site settings. Keys live outside git: PUBLIC_WEB3FORMS_KEY (https://web3forms.com; without it forms open the visitor's email app) and PUBLIC_POSTHOG_KEY (PostHog EU project token). Set them in .env locally and as GitHub repository variables for deploys.",
   "base": { "name": "Cardiff city centre", "lat": 51.4816, "lng": -3.1791 },
   "coreRadiusMiles": 12,
-  "serviceRadiusMiles": 22,
-  "posthogKey": "phc_kGRRMSfFKyjPexMjnTKNY5kz5LXjpfFavZcrYrWZ78d9"
+  "serviceRadiusMiles": 22
 }

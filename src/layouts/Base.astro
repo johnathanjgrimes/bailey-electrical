@@ -19,7 +19,7 @@ const { title, description, schema = [], preload, ogImage = '/assets/og-image.jp
 const url = new URL(Astro.url.pathname, Astro.site).href;
 const graph = { '@context': 'https://schema.org', '@graph': [businessSchema(), ...schema] };
 const beConfig = {
-  email: biz.EMAIL, phone: biz.PHONE_DISPLAY, web3formsKey: config.web3formsKey,
+  email: biz.EMAIL, phone: biz.PHONE_DISPLAY, web3formsKey: import.meta.env.PUBLIC_WEB3FORMS_KEY || '',
   base: config.base, coreRadiusMiles: config.coreRadiusMiles, serviceRadiusMiles: config.serviceRadiusMiles,
 };
 ---
@@ -73,11 +73,12 @@ const beConfig = {
   <slot name="scripts" />
   <script>
     import posthog from 'posthog-js';
-    import config from '../data/config.json';
+
+    const key = import.meta.env.PUBLIC_POSTHOG_KEY;
 
     // Cookieless: nothing is stored on the visitor's device, so no consent banner is needed.
-    if (config.posthogKey && !location.hostname.match(/^(localhost|127\.0\.0\.1)$/)) {
-      posthog.init(config.posthogKey, {
+    if (key && !location.hostname.match(/^(localhost|127\.0\.0\.1)$/)) {
+      posthog.init(key, {
         api_host: 'https://eu.i.posthog.com',
         persistence: 'memory',
         person_profiles: 'identified_only',
